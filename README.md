@@ -2,6 +2,10 @@
 
 ## Connection and Network Topology
 
+The connection phase, which involves messages `JOIN`, `PING`, and `LEAVE`, is done through UDP. This is done to avoid the overhead that comes with establishing a TCP connection, especially if there are many clients on the network.
+
+This differs from the other protocol messages, which are sent through TCP for reliability reasons.
+
 ### Joining
 When the application is launched, a `JOIN` message is broadcast to all other clients on the network. The format of a `JOIN` message is as follows:
 
