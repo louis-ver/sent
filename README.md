@@ -2,6 +2,7 @@
 
 ## Connection and Network Topology
 
+### Joining
 When the application is launched, a `JOIN` message is broadcast to all other clients on the network. The format of a `JOIN` message is as follows:
 
 ```
@@ -23,6 +24,19 @@ Upon receiving a message of type `JOIN`, a receiver responds with a `PING` messa
   }
 }
 ```
+### Leaving
+
+When a user closes the application, a `LEAVE` message is broadcast to all other clients on the network. This is done to notify others that a peer has left the network and is no longer available to receive files. The format is as follows:
+
+```
+{"type": "LEAVE",
+ "user": {
+    "name": "Bob Dole",
+    "ip": "75.34.652.13"
+  }
+}
+```
+
 
 ## Sending a file
 
@@ -48,7 +62,7 @@ A sender must first obtain permission from the receiver before initiating a file
 }
 ```
 
-### Accepting or Refusing a transfer request
+### Accepting or Refusing a Transfer Request
 The receiver has the option to either accept or deny an incoming file transfer. If the receiver accepts, the transfer will start as soon as the transfer initiator receives and acknowledges the response. If the receiver refuses the request, the transfer will not be initiated, and the sender will be notified.
 
 The format of the `ACCEPT` and `DENY` messages are as follows:
@@ -56,6 +70,10 @@ The format of the `ACCEPT` and `DENY` messages are as follows:
 `ACCEPT`
 ```
 {"type": "ACCEPT",
+ "sender": {
+   "name": "John Appleseed",
+   "ip": "75.34.652.12"
+ },
  "receiver": {
    "name": "Bob Dole",
    "ip": "75.34.652.13"
@@ -73,6 +91,10 @@ The format of the `ACCEPT` and `DENY` messages are as follows:
 `REFUSE`
 ```
 {"type": "REFUSE",
+ "sender": {
+  "name": "John Appleseed",
+  "ip": "75.34.652.12"
+ },
  "receiver": {
    "name": "Bob Dole",
    "ip": "75.34.652.13"
