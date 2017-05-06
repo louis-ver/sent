@@ -7,7 +7,7 @@ The connection phase, which involves messages `JOIN`, `PING`, and `LEAVE`, is do
 This differs from the other protocol messages, which are sent through TCP for reliability reasons.
 
 ### Joining
-When the application is launched, a `JOIN` message is broadcast to all other clients on the network. The format of a `JOIN` message is as follows:
+When the application is launched, a `JOIN` message is broadcast to all other clients on the network.
 
 ```
 {"type": "JOIN",
@@ -30,7 +30,7 @@ Upon receiving a message of type `JOIN`, a receiver responds with a `PING` messa
 ```
 ### Leaving
 
-When a user closes the application, a `LEAVE` message is broadcast to all other clients on the network. This is done to notify others that a peer has left the network and is no longer available to receive files. The format is as follows:
+When a user closes the application, a `LEAVE` message is broadcast to all other clients on the network. This is done to notify others that a peer has left the network and is no longer available to receive files.
 
 ```
 {"type": "LEAVE",
@@ -45,7 +45,7 @@ When a user closes the application, a `LEAVE` message is broadcast to all other 
 ## Sending a file
 
 ### Getting Permission
-A sender must first obtain permission from the receiver before initiating a file transfer. This is done through a `ASK` message. The `ASK` format is as follows:
+A sender must first obtain permission from the receiver before initiating a file transfer. This is done through a `ASK` message.
 ```
 {"type": "ASK",
  "sender": {
@@ -68,8 +68,6 @@ A sender must first obtain permission from the receiver before initiating a file
 
 ### Accepting or Refusing a Transfer Request
 The receiver has the option to either accept or deny an incoming file transfer. If the receiver accepts, the transfer will start as soon as the transfer initiator receives and acknowledges the response. If the receiver refuses the request, the transfer will not be initiated, and the sender will be notified.
-
-The format of the `ACCEPT` and `DENY` messages are as follows:
 
 #### ACCEPT
 ```
