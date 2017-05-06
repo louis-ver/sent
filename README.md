@@ -67,7 +67,7 @@ The receiver has the option to either accept or deny an incoming file transfer. 
 
 The format of the `ACCEPT` and `DENY` messages are as follows:
 
-`ACCEPT`
+#### ACCEPT
 ```
 {"type": "ACCEPT",
  "sender": {
@@ -88,7 +88,7 @@ The format of the `ACCEPT` and `DENY` messages are as follows:
 }
 ```
 
-`REFUSE`
+#### REFUSE
 ```
 {"type": "REFUSE",
  "sender": {
