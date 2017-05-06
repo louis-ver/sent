@@ -1,6 +1,6 @@
-## Communication Protocol
+# Communication Protocol
 
-### Connection and Network Topology
+## Connection and Network Topology
 
 When the application is launched, a `JOIN` message is broadcast to all other clients on the network. The format of a `JOIN` message is as follows:
 
@@ -24,9 +24,9 @@ Upon receiving a message of type `JOIN`, a receiver responds with a `PING` messa
 }
 ```
 
-### Sending a file
+## Sending a file
 
-#### Getting Permission
+### Getting Permission
 A sender must first obtain permission from the receiver before initiating a file transfer. This is done through a `ASK` message. The `ASK` format is as follows:
 ```
 {"type": "ASK",
@@ -48,7 +48,7 @@ A sender must first obtain permission from the receiver before initiating a file
 }
 ```
 
-#### Accepting or Refusing a transfer request
+### Accepting or Refusing a transfer request
 The receiver has the option to either accept or deny an incoming file transfer. If the receiver accepts, the transfer will start as soon as the transfer initiator receives and acknowledges the response. If the receiver refuses the request, the transfer will not be initiated, and the sender will be notified.
 
 The format of the `ACCEPT` and `DENY` messages are as follows:
