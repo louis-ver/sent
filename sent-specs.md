@@ -49,7 +49,7 @@ A sender must first obtain permission from the receiver before initiating a file
 ```
 
 #### Accepting or Refusing a transfer request
-The receiver has the option to either accept or deny an incoming `ASK` message. If the receiver accepts, the transfer will start as soon as the transfer initiator receives and acknowledges the response. If the received refuses the request, the transfer will not be initiated, and the sender will be notified.
+The receiver has the option to either accept or deny an incoming file transfer. If the receiver accepts, the transfer will start as soon as the transfer initiator receives and acknowledges the response. If the receiver refuses the request, the transfer will not be initiated, and the sender will be notified.
 
 The format of the `ACCEPT` and `DENY` messages are as follows:
 
