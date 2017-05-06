@@ -1,4 +1,4 @@
-# Communication Protocol
+# Sent Communication Protocol
 
 ## Connection and Network Topology
 
