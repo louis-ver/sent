@@ -58,7 +58,7 @@ A sender must first obtain permission from the receiver before initiating a file
   }],
   "file": {
     "name": "todo2017-05-05.txt",
-    "size": "75",
+    "length": "75",
     "type": "text/plain",
     "hash": "ff893030ffa59fd0c328118df5f8b5c2"
   },
@@ -82,7 +82,7 @@ The receiver has the option to either accept or deny an incoming file transfer. 
  },
  "file": {
    "name": "todo2017-05-05.txt",
-   "size": "75",
+   "length": "75",
    "type": "text/plain",
    "hash": "ff893030ffa59fd0c328118df5f8b5c2",
  },
@@ -103,7 +103,7 @@ The receiver has the option to either accept or deny an incoming file transfer. 
  },
  "file": {
    "name": "todo2017-05-05.txt",
-   "size": "75",
+   "length": "75",
    "type": "text/plain",
    "hash": "ff893030ffa59fd0c328118df5f8b5c2"
  },
