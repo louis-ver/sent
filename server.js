@@ -23,7 +23,7 @@ UDPServer.on("message", (msg, rinfo) => {
 UDPServer.bind(8081);
 UDPServer.on("listening", () => {
   let join = JSON.stringify(
-    messages.createJoinMessage({ name: "Louis-Olivier", ip: "34.65.75.234" })
+    messages.createJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
   );
   let message = new Buffer(join);
   let client = dgram.createSocket("udp4");
