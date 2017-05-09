@@ -2,13 +2,17 @@ const net = require("net");
 const dgram = require("dgram");
 const messages = require("./messages");
 
+BROADCAST_IP = "255.255.255.255";
+TCP_PORT = 8080;
+UDP_PORT = 8081;
+
 // Creating TCP server
 const TCPServer = net.createServer(socket => {
   socket.on("data", data => {
     console.log(data);
   });
 });
-TCPServer.listen(8080, () => {
+TCPServer.listen(TCP_PORT, () => {
   console.log("TCP server listening");
 });
 
@@ -20,18 +24,25 @@ UDPServer.on("message", (msg, rinfo) => {
     `The UDP Server received: ${msg} from ${message["user"]["name"]} at ${message["user"]["ip"]}`
   );
 });
-UDPServer.bind(8081);
+UDPServer.bind(UDP_PORT);
 UDPServer.on("listening", () => {
   let join = JSON.stringify(
     messages.createJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
   );
   let message = new Buffer(join);
-  let client = dgram.createSocket("udp4");
-  client.send(message, 0, message.length, 8081, "127.0.0.1", function(
-    err,
-    bytes
-  ) {
-    if (err) throw err;
-    console.log("UDP message sent!");
+  var joinDatagram = dgram.createSocket("udp4");
+  joinDatagram.bind(() => {
+    joinDatagram.setBroadcast(true);
   });
+  joinDatagram.send(
+    message,
+    0,
+    message.length,
+    UDP_PORT,
+    "255.255.255.255",
+    function(err, bytes) {
+      if (err) throw err;
+      console.log("UDP message sent!");
+    }
+  );
 });
