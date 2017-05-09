@@ -1,3 +1,24 @@
+module.exports = {
+  createJoinMessage: usr => {
+    return createConnectionMessage("JOIN", usr);
+  },
+  createPingMessage: usr => {
+    return createConnectionMessage("PING", usr);
+  },
+  createLeaveMessage: usr => {
+    return createConnectionMessage("LEAVE", usr);
+  }
+};
+
+function createAskMessage(usr, receiverList, sentFile) {
+  return createFileMessage("ASK", usr, receiverList, sentFile);
+}
+function createRefuseMessage(usr, receiverList, sentFile) {
+  return createFileMessage("REFUSE", usr, receiverList, sentFile);
+}
+function createAcceptMessage(usr, receiverList, sentFile) {
+  return createFileMessage("ACCEPT", usr, receiverList, sentFile);
+}
 /*
 Formats a Connection message (PING, JOIN, or LEAVE)
 usr <Object> required. A user has the following properties:
@@ -12,15 +33,6 @@ function createConnectionMessage(methodType, usr) {
       ip: usr["ip"]
     }
   };
-}
-function createJoinMessage(usr) {
-  return createConnectionMessage("JOIN", usr);
-}
-function createPingMessage(usr) {
-  return createConnectionMessage("PING", usr);
-}
-function createLeaveMessage(usr) {
-  return createConnectionMessage("LEAVE", usr);
 }
 /*
 Formats a File Sending message (ASK, ACCEPT, or REFUSE)
@@ -46,13 +58,4 @@ function createFileMessage(methodType, usr, receiverList, sentFile) {
     file: sentFile,
     time: new Date()
   };
-}
-function createAskMessage(usr, receiverList, sentFile) {
-  return createFileMessage("ASK", usr, receiverList, sentFile);
-}
-function createRefuseMessage(usr, receiverList, sentFile) {
-  return createFileMessage("REFUSE", usr, receiverList, sentFile);
-}
-function createAcceptMessage(usr, receiverList, sentFile) {
-  return createFileMessage("ACCEPT", usr, receiverList, sentFile);
 }
