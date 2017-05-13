@@ -26,15 +26,6 @@ module.exports = {
   }
 };
 
-function addAskMessage(usr, receiverList, sentFile) {
-  return addFileMessage(ASK, usr, receiverList, sentFile);
-}
-function addRefuseMessage(usr, receiverList, sentFile) {
-  return addFileMessage(REFUSE, usr, receiverList, sentFile);
-}
-function addAcceptMessage(usr, receiverList, sentFile) {
-  return addFileMessage(ACCEPT, usr, receiverList, sentFile);
-}
 /*
 Formats a Connection message (PING, JOIN, or LEAVE)
 usr <Object> required. A user has the following properties:
