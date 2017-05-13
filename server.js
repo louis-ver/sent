@@ -1,7 +1,6 @@
 const net = require("net");
 const dgram = require("dgram");
 const messages = require("./messages");
-const User = require("./User");
 
 BROADCAST_IP = "255.255.255.255";
 TCP_PORT = 8080;
@@ -47,6 +46,3 @@ UDPServer.on("listening", () => {
     }
   );
 });
-
-let oneUser = new User("Louis-Olivier");
-console.log(oneUser);

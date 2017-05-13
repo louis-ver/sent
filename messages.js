@@ -1,23 +1,30 @@
+const JOIN = "JOIN";
+const PING = "PING";
+const LEAVE = "LEAVE";
+const ASK = "ASK";
+const REFUSE = "REFUSE";
+const ACCEPT = "ACCEPT";
+
 module.exports = {
   addJoinMessage: usr => {
-    return addConnectionMessage("JOIN", usr);
+    return addConnectionMessage(JOIN, usr);
   },
   addPingMessage: usr => {
-    return addConnectionMessage("PING", usr);
+    return addConnectionMessage(PING, usr);
   },
   addLeaveMessage: usr => {
-    return addConnectionMessage("LEAVE", usr);
+    return addConnectionMessage(LEAVE, usr);
   }
 };
 
 function addAskMessage(usr, receiverList, sentFile) {
-  return addFileMessage("ASK", usr, receiverList, sentFile);
+  return addFileMessage(ASK, usr, receiverList, sentFile);
 }
 function addRefuseMessage(usr, receiverList, sentFile) {
-  return addFileMessage("REFUSE", usr, receiverList, sentFile);
+  return addFileMessage(REFUSE, usr, receiverList, sentFile);
 }
 function addAcceptMessage(usr, receiverList, sentFile) {
-  return addFileMessage("ACCEPT", usr, receiverList, sentFile);
+  return addFileMessage(ACCEPT, usr, receiverList, sentFile);
 }
 /*
 Formats a Connection message (PING, JOIN, or LEAVE)
