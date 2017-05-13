@@ -1,6 +1,7 @@
 const net = require("net");
 const dgram = require("dgram");
 const messages = require("./messages");
+const User = require("./User");
 
 BROADCAST_IP = "255.255.255.255";
 TCP_PORT = 8080;
@@ -27,7 +28,7 @@ UDPServer.on("message", (msg, rinfo) => {
 UDPServer.bind(UDP_PORT);
 UDPServer.on("listening", () => {
   let join = JSON.stringify(
-    messages.createJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
+    messages.addJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
   );
   let message = new Buffer(join);
   var joinDatagram = dgram.createSocket("udp4");
@@ -46,3 +47,6 @@ UDPServer.on("listening", () => {
     }
   );
 });
+
+let oneUser = new User("Louis-Olivier");
+console.log(oneUser);

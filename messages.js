@@ -1,23 +1,23 @@
 module.exports = {
-  createJoinMessage: usr => {
-    return createConnectionMessage("JOIN", usr);
+  addJoinMessage: usr => {
+    return addConnectionMessage("JOIN", usr);
   },
-  createPingMessage: usr => {
-    return createConnectionMessage("PING", usr);
+  addPingMessage: usr => {
+    return addConnectionMessage("PING", usr);
   },
-  createLeaveMessage: usr => {
-    return createConnectionMessage("LEAVE", usr);
+  addLeaveMessage: usr => {
+    return addConnectionMessage("LEAVE", usr);
   }
 };
 
-function createAskMessage(usr, receiverList, sentFile) {
-  return createFileMessage("ASK", usr, receiverList, sentFile);
+function addAskMessage(usr, receiverList, sentFile) {
+  return addFileMessage("ASK", usr, receiverList, sentFile);
 }
-function createRefuseMessage(usr, receiverList, sentFile) {
-  return createFileMessage("REFUSE", usr, receiverList, sentFile);
+function addRefuseMessage(usr, receiverList, sentFile) {
+  return addFileMessage("REFUSE", usr, receiverList, sentFile);
 }
-function createAcceptMessage(usr, receiverList, sentFile) {
-  return createFileMessage("ACCEPT", usr, receiverList, sentFile);
+function addAcceptMessage(usr, receiverList, sentFile) {
+  return addFileMessage("ACCEPT", usr, receiverList, sentFile);
 }
 /*
 Formats a Connection message (PING, JOIN, or LEAVE)
@@ -25,7 +25,7 @@ usr <Object> required. A user has the following properties:
   -name <string>
   -ip <string>
 */
-function createConnectionMessage(methodType, usr) {
+function addConnectionMessage(methodType, usr) {
   return {
     type: methodType,
     user: {
@@ -47,7 +47,7 @@ Formats a File Sending message (ASK, ACCEPT, or REFUSE)
     - type <string>
     - hash <string>
 */
-function createFileMessage(methodType, usr, receiverList, sentFile) {
+function addFileMessage(methodType, usr, receiverList, sentFile) {
   return {
     type: methodType,
     sender: {
