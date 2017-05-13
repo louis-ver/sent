@@ -14,6 +14,15 @@ module.exports = {
   },
   addLeaveMessage: usr => {
     return addConnectionMessage(LEAVE, usr);
+  },
+  addAskMessage: (usr, receiverList, sentFile) => {
+    return addFileMessage(ASK, usr, receiverList, sentFile);
+  },
+  addRefuseMessage: (usr, receiverList, sentFile) => {
+    return addFileMessage(REFUSE, usr, receiverList, sentFile);
+  },
+  addAcceptMessage: (usr, receiverList, sentFile) => {
+    return addFileMessage(ACCEPT, usr, receiverList, sentFile);
   }
 };
 
