@@ -1,0 +1,49 @@
+
+> lppl@0.1.0 start C:\Users\Simon\Documents\Git\sent
+> react-scripts start "node"
+
+Starting the development server...
+
+Compiled with warnings.
+
+Warning in ./src/Main.js
+
+C:\Users\Simon\Documents\Git\sent\src\Main.js
+   6:8   warning  '$' is defined but never used                   no-unused-vars
+  61:17  warning  'fileInput' is assigned a value but never used  no-unused-vars
+  70:17  warning  'url' is assigned a value but never used        no-unused-vars
+  74:36  warning  Expected '===' and instead saw '=='             eqeqeq
+  74:55  warning  Expected '===' and instead saw '=='             eqeqeq
+
+✖ 5 problems (0 errors, 5 warnings)
+
+
+Warning in ./src/UserZone.js
+
+C:\Users\Simon\Documents\Git\sent\src\UserZone.js
+  33:5  warning  Useless constructor  no-useless-constructor
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+Warning in ./src/FileZone.js
+
+C:\Users\Simon\Documents\Git\sent\src\FileZone.js
+  2:9  warning  'Notification' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+Warning in ./src/NotificationSend.js
+
+C:\Users\Simon\Documents\Git\sent\src\NotificationSend.js
+   2:9   warning  'OrderedSet' is defined but never used              no-unused-vars
+  18:28  warning  'count' is assigned a value but never used          no-unused-vars
+  35:16  warning  'notifications' is assigned a value but never used  no-unused-vars
+
+✖ 3 problems (0 errors, 3 warnings)
+
+
+You may use special comments to disable some warnings.
+Use // eslint-disable-next-line to ignore the next line.
+Use /* eslint-disable */ to ignore all warnings in a file.
