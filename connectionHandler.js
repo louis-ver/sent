@@ -1,5 +1,5 @@
 const dgram = require("dgram");
-const messages = require("./messages");
+const action = require("./messages");
 
 BROADCAST_IP = "255.255.255.255";
 UDP_PORT = 8081;
@@ -9,7 +9,7 @@ const connectionServer = dgram.createSocket("udp4");
 // When server first launches, announce to everyone
 connectionServer.on("listening", () => {
   let join = JSON.stringify(
-    messages.addJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
+    action.addJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
   );
   let joinSignal = new Buffer(join);
   var joinDatagram = dgram.createSocket("udp4");
@@ -33,11 +33,11 @@ connectionServer.on("listening", () => {
 connectionServer.on("message", (msg, rinfo) => {
   let message = JSON.parse(msg);
   switch (message.type) {
-    case messages.JOIN:
+    case action.JOIN:
     // Broadcast PING message to everyone
-    case messages.PING:
+    case action.PING:
     // If user not in online user list, add to list
-    case messages.LEAVE:
+    case action.LEAVE:
     // Remove user from online user list
     default:
     // Do default
