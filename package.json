@@ -22,10 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "electron": "electron .",
-    "react-start": "$(npm bin)/react-scripts start",
-    "electron-start": "ELECTRON_DEV=1 $(npm bin)/electron .",
-    "start": "$(npm bin)/concurrently 'npm react-start' '$(npm bin)/wait-on http://localhost:3000/ && npm electron-start'",
+    "electron": "electron ."
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "electron-starter.js",
