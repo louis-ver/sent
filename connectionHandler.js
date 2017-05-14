@@ -1,15 +1,16 @@
 const dgram = require("dgram");
-const action = require("./messages");
+const action = require("./constants/ActionTypes");
+const actionCreator = require("./messages");
 
-BROADCAST_IP = "255.255.255.255";
-UDP_PORT = 8081;
+const BROADCAST_IP = "255.255.255.255";
+const UDP_PORT = 8081;
 
 const connectionServer = dgram.createSocket("udp4");
 
 // When server first launches, announce to everyone
 connectionServer.on("listening", () => {
   let join = JSON.stringify(
-    action.addJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
+    actionCreator.addJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
   );
   broadcastMessage(join);
 });
@@ -49,6 +50,7 @@ function broadcastMessage(msg) {
     BROADCAST_IP,
     (err, bytes) => {
       if (err) throw err;
+      // Do what you have to do on successful broadcast...(nothing?)
       console.log(`${JSON.parse(msg).type} successfully sent to all hosts`);
     }
   );

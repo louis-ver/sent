@@ -1,5 +1,5 @@
 const net = require("net");
-const messages = require("./messages");
+const action = require("./constants/ActionTypes");
 
 TCP_PORT = 8080;
 
@@ -7,10 +7,10 @@ TCP_PORT = 8080;
 const fileServer = net.createServer(socket => {
   socket.on("data", data => {
     switch (data.type) {
-      case messages.ASK:
-      case messages.ACCEPT:
-      case messages.REFUSE:
-      case messages.SEND:
+      case action.ASK:
+      case action.ACCEPT:
+      case action.REFUSE:
+      case action.SEND:
       default: // Do default
     }
   });

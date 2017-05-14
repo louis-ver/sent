@@ -1,35 +1,24 @@
-const JOIN = "JOIN";
-const PING = "PING";
-const LEAVE = "LEAVE";
-const ASK = "ASK";
-const REFUSE = "REFUSE";
-const ACCEPT = "ACCEPT";
+let action = require("./constants/ActionTypes");
 
 module.exports = {
   addJoinMessage: usr => {
-    return addConnectionMessage(JOIN, usr);
+    return addConnectionMessage(action.JOIN, usr);
   },
   addPingMessage: usr => {
-    return addConnectionMessage(PING, usr);
+    return addConnectionMessage(action.PING, usr);
   },
   addLeaveMessage: usr => {
-    return addConnectionMessage(LEAVE, usr);
+    return addConnectionMessage(action.LEAVE, usr);
   },
   addAskMessage: (usr, receiverList, sentFile) => {
-    return addFileMessage(ASK, usr, receiverList, sentFile);
+    return addFileMessage(action.ASK, usr, receiverList, sentFile);
   },
   addRefuseMessage: (usr, receiverList, sentFile) => {
-    return addFileMessage(REFUSE, usr, receiverList, sentFile);
+    return addFileMessage(action.REFUSE, usr, receiverList, sentFile);
   },
   addAcceptMessage: (usr, receiverList, sentFile) => {
-    return addFileMessage(ACCEPT, usr, receiverList, sentFile);
-  },
-  JOIN: JOIN,
-  PING: PING,
-  LEAVE: LEAVE,
-  ASK: ASK,
-  REFUSE: REFUSE,
-  ACCEPT: ACCEPT
+    return addFileMessage(action.ACCEPT, usr, receiverList, sentFile);
+  }
 };
 
 /*
