@@ -23,7 +23,13 @@ module.exports = {
   },
   addAcceptMessage: (usr, receiverList, sentFile) => {
     return addFileMessage(ACCEPT, usr, receiverList, sentFile);
-  }
+  },
+  JOIN: JOIN,
+  PING: PING,
+  LEAVE: LEAVE,
+  ASK: ASK,
+  REFUSE: REFUSE,
+  ACCEPT: ACCEPT
 };
 
 /*
@@ -41,6 +47,7 @@ function addConnectionMessage(methodType, usr) {
     }
   };
 }
+
 /*
 Formats a File Sending message (ASK, ACCEPT, or REFUSE)
   - methodType <string>
