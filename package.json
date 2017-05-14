@@ -1,15 +1,38 @@
 {
-  "name": "sent",
-  "version": "1.0.0",
-  "description": "send files to anyone on your local area network",
-  "main": "server.js",
+  "name": "lppl",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "electron": "^1.6.7",
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "jquery": "^3.1.1",
+    "react": "^15.4.2",
+    "react-addons-update": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-dropzone": "^3.9.1",
+    "react-modal": "^1.6.5",
+    "react-notification": "^6.6.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron ."
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "electron-starter.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louis-ver/hackathon21_01_17.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "immutable": "^3.8.1"
-  }
+  "bugs": {
+    "url": "https://github.com/louis-ver/hackathon21_01_17/issues"
+  },
+  "homepage": "https://github.com/louis-ver/hackathon21_01_17#readme"
 }
