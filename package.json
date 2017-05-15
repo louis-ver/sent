@@ -24,7 +24,7 @@
     "electron": "electron ."
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "electron-starter.js",
+  "main": "./src/electron-starter.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/louis-ver/hackathon21_01_17.git"
