@@ -43,11 +43,7 @@ When a user closes the application, a `LEAVE` message is broadcast to all other 
 A sender must first obtain permission from the receiver before initiating a file transfer. This is done through a `ASK` message.
 ```
 {"type": "ASK",
- "sender": {
-    "name": "John Appleseed",
-    "icon": "U+1F601"
- },
-  "file": {
+ "file": {
     "name": "todo2017-05-05.txt",
     "length": 75,
     "type": "text/plain",
@@ -63,10 +59,6 @@ The receiver has the option to either accept or deny an incoming file transfer. 
 #### ACCEPT
 ```
 {"type": "ACCEPT",
- "receiver": {
-   "name": "Bob Dole",
-   "icon": "U+1F601"
- },
  "file": {
    "name": "todo2017-05-05.txt",
    "length": 75,
@@ -80,10 +72,6 @@ The receiver has the option to either accept or deny an incoming file transfer. 
 #### REFUSE
 ```
 {"type": "REFUSE",
- "receiver": {
-   "name": "Bob Dole",
-   "icon": "U+1F601"
- },
  "file": {
    "name": "todo2017-05-05.txt",
    "length": 75,
