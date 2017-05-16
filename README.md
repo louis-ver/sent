@@ -13,7 +13,7 @@ When the application is launched, a `JOIN` message is broadcast to all other cli
 {"type": "JOIN",
  "user": {
     "name": "John Appleseed",
-    "ip": "75.34.652.12"
+    "icon": "U+1F601"
  }
 }
 ```
@@ -24,7 +24,7 @@ Upon receiving a message of type `JOIN`, a receiver responds with a `PING` messa
 {"type": "PING",
  "user": {
     "name": "Bob Dole",
-    "ip": "75.34.652.13"
+    "icon": "U+1F601"
   }
 }
 ```
@@ -50,12 +50,8 @@ A sender must first obtain permission from the receiver before initiating a file
 {"type": "ASK",
  "sender": {
     "name": "John Appleseed",
-    "ip": "75.34.652.12"
+    "icon": "U+1F601"
  },
-  "receivers": [{
-    "name": "Bob Dole",
-    "ip": "75.34.652.13"
-  }],
   "file": {
     "name": "todo2017-05-05.txt",
     "length": 75,
@@ -72,13 +68,9 @@ The receiver has the option to either accept or deny an incoming file transfer. 
 #### ACCEPT
 ```
 {"type": "ACCEPT",
- "sender": {
-   "name": "John Appleseed",
-   "ip": "75.34.652.12"
- },
  "receiver": {
    "name": "Bob Dole",
-   "ip": "75.34.652.13"
+   "icon": "U+1F601"
  },
  "file": {
    "name": "todo2017-05-05.txt",
@@ -93,13 +85,9 @@ The receiver has the option to either accept or deny an incoming file transfer. 
 #### REFUSE
 ```
 {"type": "REFUSE",
- "sender": {
-  "name": "John Appleseed",
-  "ip": "75.34.652.12"
- },
  "receiver": {
    "name": "Bob Dole",
-   "ip": "75.34.652.13"
+   "icon": "U+1F601"
  },
  "file": {
    "name": "todo2017-05-05.txt",
