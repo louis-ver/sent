@@ -33,11 +33,7 @@ Upon receiving a message of type `JOIN`, a receiver responds with a `PING` messa
 When a user closes the application, a `LEAVE` message is broadcast to all other clients on the network. This is done to notify others that a peer has left the network and is no longer available to receive files.
 
 ```
-{"type": "LEAVE",
- "user": {
-    "name": "Bob Dole",
-    "ip": "75.34.652.13"
-  }
+{"type": "LEAVE"
 }
 ```
 
