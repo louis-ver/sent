@@ -14,19 +14,7 @@ function sent(state = initialState, action) {
   switch (action.type) {
     // If JOIN, add user to users list
     case actionType.JOIN:
-      return Object.assign({}, state, {
-        users: [...state.users, { name: action.user.name, ip: action.user.ip }]
-      });
-    // If PING and user not in users list, add to users list
     case actionType.PING:
-      for (var i = 0; i < state.users.length; i++) {
-        if (
-          state.users[i].name === action.user.name &&
-          state.users[i].ip === action.user.ip
-        ) {
-          return state;
-        }
-      }
       return Object.assign({}, state, {
         users: [...state.users, { name: action.user.name, ip: action.user.ip }]
       });
@@ -43,3 +31,15 @@ function sent(state = initialState, action) {
 module.exports = {
   sent: sent
 };
+
+const JOINaction = {
+  type: "JOIN",
+  user: {
+    name: "Louis-Olivier",
+    ip: "10.0.0.1"
+  }
+};
+const PINGaction = {
+  type: "PING"
+};
+console.log(sent(initialState, JOINaction));
