@@ -23,7 +23,7 @@ var JOINMessage = {
   }
 };
 
-var ASKMessasge = {
+var ASKMessage = {
   type: "ASK",
   content: {
     user: { ip: "10.0.0.1", name: "Simon", icon: "Bonhomme" },

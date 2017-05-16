@@ -3,7 +3,7 @@ const actionType = require("../constants/ActionTypes");
 const initialState = {
   me: { name: "", ip: "" },
   users: [],
-  transfersInProgress: [],
+  transfersInProgress: { outgoing: [], incoming: [] },
   completedTransfers: [],
   requests: []
 };
@@ -21,7 +21,7 @@ function sent(state = initialState, action) {
     case actionType.LEAVE:
       return Object.assign({}, state, {
         users: state.users.filter(quitUser => {
-          return JSON.stringify(quitUser) != JSON.stringify(action.user);
+          return JSON.stringify(quitUser) !== JSON.stringify(action.user);
         })
       });
     case actionType.ASK:
@@ -30,6 +30,13 @@ function sent(state = initialState, action) {
       });
     case actionType.ACCEPT:
     case actionType.REFUSE:
+      return Object.assign({}, state, {
+        requests: state.requests.filter(acceptedRequest => {
+          return (
+            JSON.stringify(acceptedRequest) !== JSON.stringify(action.content)
+          );
+        })
+      });
     case actionType.SEND:
     default:
       return state;
