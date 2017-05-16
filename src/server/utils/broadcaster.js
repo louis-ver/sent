@@ -1,5 +1,5 @@
 const dgram = require("dgram");
-const addresses = require("../constants/Addresses");
+const addresses = require("../../constants/Addresses");
 
 /* Sends msg to all hosts on the network */
 function broadcast(msg) {
@@ -23,5 +23,5 @@ function broadcast(msg) {
 }
 
 module.exports = {
-    broadcast : broadcast
-}
+  broadcast: broadcast
+};

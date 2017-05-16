@@ -1,7 +1,7 @@
 const dgram = require("dgram");
-const action = require("../constants/ActionTypes");
-const actionCreator = require("../ActionCreators");
-const addresses = require("../constants/Addresses");
+const action = require("../../constants/ActionTypes");
+const actionCreator = require("../../actions/index");
+const addresses = require("../../constants/Addresses");
 const connectionService = require("../services/connectionService");
 const broadcaster = require("../utils/broadcaster");
 

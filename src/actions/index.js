@@ -1,4 +1,4 @@
-let action = require("./constants/ActionTypes");
+let action = require("../constants/ActionTypes");
 
 module.exports = {
   addUserFromJoin: usr => {

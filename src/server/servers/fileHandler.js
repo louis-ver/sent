@@ -1,6 +1,6 @@
 const net = require("net");
-const action = require("../constants/ActionTypes");
-const addresses = require("../constants/Addresses");
+const action = require("../../constants/ActionTypes");
+const addresses = require("../../constants/Addresses");
 
 function startTCP() {
   // Create TCP server
@@ -20,7 +20,6 @@ function startTCP() {
   fileServer.listen(addresses.TCP_PORT, () => {
     console.log(`File server is listening on port ${addresses.TCP_PORT}`);
   });
-
 }
 
 module.exports = {
