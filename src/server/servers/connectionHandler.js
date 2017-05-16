@@ -1,6 +1,6 @@
 const dgram = require("dgram");
 const action = require("../constants/ActionTypes");
-const actionCreator = require("../messages");
+const actionCreator = require("../ActionCreators");
 const addresses = require("../constants/Addresses");
 const connectionService = require("../services/connectionService");
 const broadcaster = require("../utils/broadcaster");
@@ -11,7 +11,7 @@ function startUDP() {
   // When server first launches, announce to everyone
   connectionServer.on("listening", () => {
     let join = JSON.stringify(
-      actionCreator.addJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
+      actionCreator.addUserFromJoin({ name: "John Dole", ip: "34.65.75.234" })
     );
     broadcaster.broadcast(join);
   });
@@ -40,4 +40,3 @@ function startUDP() {
 module.exports = {
   startUDP: startUDP
 };
-

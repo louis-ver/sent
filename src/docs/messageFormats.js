@@ -32,7 +32,6 @@ var ASKMessasge = {
       length: 75,
       type: "text/plain",
       hash: "ff893030ffa59fd0c328118df5f8b5c2"
-    },
-    time: "2017-05-05 14:33:32"
+    }
   }
 };
