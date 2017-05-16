@@ -2,6 +2,8 @@ const dgram = require("dgram");
 const action = require("../constants/ActionTypes");
 const actionCreator = require("../messages");
 const addresses = require("../constants/Addresses");
+const connectionService = require("../services/connectionService");
+const broadcaster = require("../utils/broadcaster");
 
 function startUDP() {
   const connectionServer = dgram.createSocket("udp4");
@@ -11,7 +13,7 @@ function startUDP() {
     let join = JSON.stringify(
       actionCreator.addJoinMessage({ name: "John Dole", ip: "34.65.75.234" })
     );
-    broadcastMessage(join);
+    broadcaster.broadcast(join);
   });
 
   // Connection Server receives a JOIN, PING, or LEAVE message
@@ -19,9 +21,11 @@ function startUDP() {
     let message = JSON.parse(msg);
     switch (message.type) {
       case action.JOIN:
+        connectionService.welcome(rinfo.address);
+      case action.PING:
+        connectionService.addUser(message, rinfo.address);
         // Broadcast PING message to everyone
         console.log("Received JOIN message");
-      case action.PING:
       // If user not in online user list, add to list
       case action.LEAVE:
       // Remove user from online user list
@@ -37,25 +41,3 @@ module.exports = {
   startUDP: startUDP
 };
 
-// Helper functions
-
-/* Sends msg to all hosts on the network */
-function broadcastMessage(msg) {
-  let message = new Buffer(msg);
-  var datagram = dgram.createSocket("udp4");
-  datagram.bind(() => {
-    datagram.setBroadcast(true);
-  });
-  datagram.send(
-    message,
-    0,
-    message.length,
-    addresses.UDP_PORT,
-    addresses.BROADCAST_IP,
-    (err, bytes) => {
-      if (err) throw err;
-      // Do what you have to do on successful broadcast...(nothing?)
-      console.log(`${JSON.parse(msg).type} successfully sent to all hosts`);
-    }
-  );
-}

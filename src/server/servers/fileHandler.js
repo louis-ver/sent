@@ -7,6 +7,7 @@ function startTCP() {
   const fileServer = net.createServer(socket => {
     socket.on("data", data => {
       switch (data.type) {
+        case action.PING:
         case action.ASK:
         case action.ACCEPT:
         case action.REFUSE:
@@ -19,6 +20,7 @@ function startTCP() {
   fileServer.listen(addresses.TCP_PORT, () => {
     console.log(`File server is listening on port ${addresses.TCP_PORT}`);
   });
+
 }
 
 module.exports = {

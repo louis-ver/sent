@@ -8,7 +8,7 @@ const initialState = {
   requests: []
 };
 
-function sent(state = initialState, action) {
+function sent(action, state = initialState) {
   // Modifies the state according to action type
   // Returns the modified state
   switch (action.type) {
@@ -43,3 +43,9 @@ const PINGaction = {
   type: "PING"
 };
 console.log(sent(initialState, JOINaction));
+
+module.exports =
+{
+  sent:sent
+  
+}
