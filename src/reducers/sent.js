@@ -25,6 +25,9 @@ function sent(state = initialState, action) {
         })
       });
     case actionType.ASK:
+      return Object.assign({}, state, {
+        requests: [...state.requests, action.content]
+      });
     case actionType.ACCEPT:
     case actionType.REFUSE:
     case actionType.SEND:
@@ -36,27 +39,3 @@ function sent(state = initialState, action) {
 module.exports = {
   sent: sent
 };
-// const user1 = { name: "Louis-Olivier", ip: "10.0.0.1" };
-// const user2 = { name: "Simon", ip: "10.0.0.2" };
-// const initialState2 = {
-//   me: { name: "", ip: "" },
-//   users: [user1, user2],
-//   transfersInProgress: [],
-//   completedTransfers: [],
-//   requests: []
-// };
-// const JOINaction = {
-//   type: "JOIN",
-//   user: {
-//     name: "Simon",
-//     ip: "10.0.0.1"
-//   }
-// };
-// const LEAVEaction = {
-//   type: "LEAVE",
-//   user: {
-//     name: "Bob",
-//     ip: "10.0.0.2"
-//   }
-// };
-// console.log(sent(initialState, JOINaction));
