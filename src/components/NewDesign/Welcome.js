@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { Motion, spring } from "react-motion";
 import "./css/Welcome.css";
 
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ""
+      name: "",
+      submitted: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,7 +18,8 @@ class Welcome extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log("Form submitted");
+    this.setState({ submitted: true });
+    event.preventDefault();
   }
 
   componentWillMount() {
@@ -29,17 +31,38 @@ class Welcome extends React.Component {
   render() {
     return (
       <div className="Welcome">
-        <h1 className="logo">sent</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>Enter your name:</label>
-          <input
-            id="nameInput"
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <input type="submit" className="hidden" />
-        </form>
+        <Motion
+          style={{
+            y: spring(this.state.submitted ? -600 : 0, {
+              stiffness: 80,
+              damping: 20
+            })
+          }}
+        >
+          {({ y }) => (
+            <div className="animated">
+              <div
+                className="animated-block"
+                style={{
+                  WebkitTransform: `translate3d(0, ${y}px, 0)`,
+                  transform: `translate3d(0, ${y}px, 0)`
+                }}
+              >
+                <h1 className="logo">sent</h1>
+                <form onSubmit={this.handleSubmit}>
+                  <label>Enter your name:</label>
+                  <input
+                    id="nameInput"
+                    type="text"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                  />
+                  <input type="submit" className="hidden" />
+                </form>
+              </div>
+            </div>
+          )}
+        </Motion>
       </div>
     );
   }
