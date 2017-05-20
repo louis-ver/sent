@@ -2,6 +2,7 @@ import React from "react";
 import { Motion, spring } from "react-motion";
 import EnterName from "./EnterName";
 import "./css/Welcome.css";
+import $ from "jquery";
 
 class Welcome extends React.Component {
   constructor(props) {
@@ -9,6 +10,11 @@ class Welcome extends React.Component {
     this.state = {
       submitted: false
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    this.setState({ submitted: true });
   }
 
   render() {
@@ -16,7 +22,7 @@ class Welcome extends React.Component {
       <div className="Welcome">
         <Motion
           style={{
-            y: spring(this.state.submitted ? -600 : 0, {
+            y: spring(this.state.submitted ? -$(window).height() : 0, {
               stiffness: 80,
               damping: 20
             })
@@ -32,7 +38,7 @@ class Welcome extends React.Component {
                 }}
               >
                 <h1 className="logo">sent</h1>
-                <EnterName />
+                <EnterName onFormSubmit={this.handleSubmit} />
               </div>
             </div>
           )}

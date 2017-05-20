@@ -4,7 +4,7 @@ import { addUserFromLogin } from "../../actions/index";
 
 const ip = require("ip");
 
-let EnterName = ({ dispatch }) => {
+let EnterName = ({ dispatch, onFormSubmit }) => {
   let input;
 
   return (
@@ -15,6 +15,7 @@ let EnterName = ({ dispatch }) => {
           if (!input.value.trim()) {
             return;
           }
+          onFormSubmit(true);
           dispatch(addUserFromLogin({ name: input.value, ip: ip.address() }));
         }}
       >
