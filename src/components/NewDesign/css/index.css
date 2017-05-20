@@ -4,5 +4,5 @@ body {
 
 @font-face {
     font-family: Apercu;
-    src: url('./assets/fonts/Apercu-Medium.otf') format("opentype");
+    src: url('../assets/fonts/Apercu Medium.otf') format("opentype");
 }
