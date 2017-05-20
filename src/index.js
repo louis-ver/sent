@@ -1,6 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Welcome from "./components/NewDesign/Welcome.js";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { sent, initialState } from "./reducers/sent";
+import App from "./components/App";
 import "./index.css";
 
-ReactDOM.render(<Welcome />, document.getElementById("root"));
+let store = createStore(
+  sent,
+  initialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);

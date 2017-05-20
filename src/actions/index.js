@@ -1,6 +1,9 @@
 let action = require("../constants/ActionTypes");
 
 module.exports = {
+  addUserFromLogin: usr => {
+    return addConnectionMessage(action.LOGIN, usr);
+  },
   addUserFromJoin: usr => {
     return addConnectionMessage(action.JOIN, usr);
   },

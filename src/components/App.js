@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
-import {Header, Footer} from './HeaderFooter.js';
-import {Body} from './Body.js';
+import React, { Component } from "react";
+import Welcome from "./NewDesign/Welcome";
 
 class App extends Component {
-    render() {
+  render() {
     return (
-        <div className="App">
-            <Header/>
-            <Body/>
-            <Footer/>
-        </div>
+      <div className="App">
+        <Welcome />
+      </div>
     );
   }
 }

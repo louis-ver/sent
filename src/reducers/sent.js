@@ -12,16 +12,20 @@ function sent(state = initialState, action) {
   // Modifies the state according to action type
   // Returns the modified state
   switch (action.type) {
+    case actionType.LOGIN:
+      return Object.assign({}, state, {
+        me: action.content
+      });
     // If JOIN, add user to users list
     case actionType.JOIN:
     case actionType.PING:
       return Object.assign({}, state, {
-        users: [...state.users, action.user]
+        users: [...state.users, action.content]
       });
     case actionType.LEAVE:
       return Object.assign({}, state, {
         users: state.users.filter(quitUser => {
-          return JSON.stringify(quitUser) !== JSON.stringify(action.user);
+          return JSON.stringify(quitUser) !== JSON.stringify(action.content);
         })
       });
     case actionType.ASK:
@@ -44,5 +48,6 @@ function sent(state = initialState, action) {
 }
 
 module.exports = {
-  sent: sent
+  sent: sent,
+  initialState: initialState
 };
