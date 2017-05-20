@@ -24,6 +24,7 @@ let EnterName = ({ dispatch, onFormSubmit }) => {
           ref={node => {
             input = node;
           }}
+          autoFocus
         />
         <button type="submit" className="hidden" />
       </form>
