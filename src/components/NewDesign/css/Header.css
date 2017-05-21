@@ -3,6 +3,15 @@
     top:0;
     height: 30px;
     width:100%;
+    color: white;
+}
+
+.headerContent{
+    padding: 10px 10px;
+}
+
+.appName {
+    float:left;
 }
 
 .user {

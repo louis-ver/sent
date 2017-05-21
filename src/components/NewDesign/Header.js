@@ -12,13 +12,15 @@ class Header extends React.Component {
     if(!this.props.me) return null;
 
     return (
-        <div className="Header" style={{backgroundColor:this.props.me.color || '#6E00B9'}}>
-            <span>
-                Sent
-            </span>
-            <span className="user">
-                {this.props.me.name}
-            </span>
+        <div className="header" style={{backgroundColor:this.props.me.color || '#6E00B9'}}>
+            <div className="headerContent" style={{backgroundColor:this.props.me.color || '#6E00B9'}}>
+                <div className="appName">
+                    sent
+                </div>
+                <div className="user">
+                    {this.props.me.name}
+                </div>
+            </div>
         </div>
     );
   }
