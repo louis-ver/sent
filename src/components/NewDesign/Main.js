@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Header from "./Header";
-import UserList from "./UserList"
+import UserList from "./UserList";
+import MainContent from "./MainContent";
 
 class Main extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Main extends React.Component {
     return (
       <div className="Main">
         <Header />
-        <UserList/>
+        <MainContent />
       </div>
     );
   }
