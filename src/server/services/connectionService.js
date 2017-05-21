@@ -2,6 +2,8 @@ const sent = require("../../reducers/sent");
 const ip = require("ip");
 
 function welcome(senderIp) {
+  console.log(ip.address());
+  console.log(senderIp);
   if (senderIp === ip.address()) return; //We don't want to welcome ourselves. That would be odd...
 
   const welcome = {
@@ -21,3 +23,5 @@ module.exports = {
   addUser: addUser,
   welcome: welcome
 };
+
+console.log(ip.address());
