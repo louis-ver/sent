@@ -20,6 +20,8 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadURL("http://localhost:3000");
 
+  // TODO: Make sure server is not already running
+  // Causes bug when window closed, then reopened.
   server.init();
 
   // Open the DevTools.
