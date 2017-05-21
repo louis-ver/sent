@@ -20,10 +20,16 @@ li {
 }
 .button {
     color: #6E00B9;
+    cursor: pointer;
 }
 .button:hover {
     color: black;
 }
+
+.spliter{
+    cursor: default;
+}
+
 .requestStatus {
     display: inline-block;
     width: 30%;
