@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import User from "./User";
 
@@ -18,7 +17,6 @@ class UserList extends Component {
         )
     }
 }
-
 
 UserList = connect((store, props) => {
     console.log(store.users);
