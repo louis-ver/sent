@@ -15,7 +15,9 @@ let EnterName = ({ dispatch, onFormSubmit }) => {
           if (!input.value.trim()) {
             return;
           }
+          // Sets Welcome state as "submitted: true"
           onFormSubmit(true);
+          // Change Redux state to include "me"
           dispatch(addUserFromLogin({ name: input.value, ip: ip.address() }));
         }}
       >
@@ -31,7 +33,7 @@ let EnterName = ({ dispatch, onFormSubmit }) => {
     </div>
   );
 };
-
+// Connect to Redux Store
 EnterName = connect()(EnterName);
 
 export default EnterName;
