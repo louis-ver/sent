@@ -21,7 +21,7 @@ class Request extends Component {
             // debugger;
             c.setState({ 
                 status: RequestTypes.IN_PROGRESS,
-            }, () => {$(".statusLabel").fadeIn("fast")});
+            }, () => {$(`li.${this.props.request.guid} .statusLabel`).fadeIn("fast")});
         });
     }
     handleRefuse(event) {
@@ -29,11 +29,11 @@ class Request extends Component {
         this.transition(() => {
             c.setState({
                 status: RequestTypes.REFUSED
-            }, () => {$(".statusLabel").fadeIn("fast")});
+            }, () => {$(`li.${this.props.request.guid} .statusLabel`).fadeIn("fast")});
         });
     }
     transition(intermediaryFunction) {
-        $(".buttons").fadeOut("fast", () => {
+        $(`li.${this.props.request.guid} .buttons`).fadeOut("fast", () => {
             intermediaryFunction();
         });
     }
@@ -54,26 +54,23 @@ class Request extends Component {
         } else if (this.state.status === RequestTypes.REFUSED) {
             button = (<div className="statusLabel">REFUSED</div>);
         } else {
-            button = (<div className="statusLabel">{this.state.progress} / {this.props.fileSize}</div>);
+            button = (<div className="statusLabel">{this.state.progress} / {this.props.request.fileSize}</div>);
         }
         return(
-            <div className="Request">
-                <li>
+            <li className={this.props.request.guid}>
                     <div className="fileName">
-                        {this.props.fileName}
+                        {this.props.request.fileName}
                     </div>
                     <div className="requestStatus">
                         {button}
                     </div>
-                </li>
-            </div>
+            </li>
         )
     }
  }
 
  Request.propTypes = {
-    fileName: PropTypes.string.isRequired,
-    fileSize: PropTypes.number.isRequired
+    request: PropTypes.object.isRequired,
  };
 
  export default Request;

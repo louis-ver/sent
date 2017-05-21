@@ -7,6 +7,7 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "guid": "0.0.12",
     "immutable": "^3.8.1",
     "ip": "^1.1.5",
     "jquery": "^3.1.1",

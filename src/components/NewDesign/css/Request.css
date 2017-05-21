@@ -1,7 +1,7 @@
 li {
     font-size: .8em;
     list-style: none;
-    padding-bottom: 5px;
+    padding: 5px 0 5px 0;
     border-bottom: 1px solid #979797;
 }
 .Request {
