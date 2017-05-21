@@ -7,7 +7,6 @@ class App extends Component {
     return (
       <div className="App">
         <Welcome />
-        <Request fileName="bob.txt" fileSize={128} />
       </div>
     );
   }
