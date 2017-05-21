@@ -13,6 +13,7 @@
  - `users: Array` is an array of online users with { id, ip, name, selected } shape.
  - `onUserClick(id: number)` is a callback to invoke when a user is selected.
 - `UserRequests` is a list showing incoming requests for a particular user
+ - `userName: string` is the name of the person to send you a request
  - `name: string` is the name of the file to show
  - `requestStatus: request` is the status of the incoming request
  - `onStatusChange(id: number, status)` is a callback to invoke when a status is changed by the user
