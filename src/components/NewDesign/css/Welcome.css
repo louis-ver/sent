@@ -12,6 +12,7 @@ input {
   color: #6E00B9;
   text-shadow: 0px 0px 0px #000;
   -webkit-text-fill-color: transparent;
+  background-color: transparent;
 }
 input:focus {
   outline: none;

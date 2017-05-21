@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { addUserFromLogin } from "../../actions/index";
 import Me from "../../classes/me";
 
-const ip = require("ip");
+// const ip = require("ip");
 
 class EnterName extends Component {
   render() {
@@ -19,7 +19,6 @@ class EnterName extends Component {
               return;
             }
             // Change Redux state to include "me"
-            debugger;
             this.props.dispatch(
               addUserFromLogin(new Me(input.value))
             );
