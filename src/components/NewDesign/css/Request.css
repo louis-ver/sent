@@ -1,0 +1,31 @@
+li {
+    font-size: .8em;
+    list-style: none;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #979797;
+}
+.Request {
+    width: 100%;
+}
+.fileName {
+    float: left;
+    display: inline-block;
+    color: #969696;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.buttons {
+    text-align: right;
+}
+.button {
+    color: #6E00B9;
+}
+.button:hover {
+    color: black;
+}
+.requestStatus {
+    display: inline-block;
+    width: 30%;
+    text-align: right;
+}
