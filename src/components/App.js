@@ -23,7 +23,6 @@ class App extends Component {
         <div className="App">
           <Welcome/>
           <Main/>
-          <Request fileName="bob.txt" fileSize={128} />
         </div>
       );
   }

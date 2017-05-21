@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import RequestTypes from "../../constants/RequestTypes"
+import $ from "jquery";
+import "./css/Request.css";
 
 class Request extends Component {
     constructor(props) {
@@ -11,53 +13,64 @@ class Request extends Component {
         }
         this.handleAccept = this.handleAccept.bind(this);
         this.handleRefuse = this.handleRefuse.bind(this);
+        this.transition = this.transition.bind(this);
     }
     handleAccept(event) {
-        this.setState({ 
-            status: RequestTypes.IN_PROGRESS,
+        let c = this;
+        this.transition(() => {
+            // debugger;
+            c.setState({ 
+                status: RequestTypes.IN_PROGRESS,
+            }, () => {$(`li.${this.props.request.guid} .statusLabel`).fadeIn("fast")});
         });
     }
     handleRefuse(event) {
-        this.setState({
-            status: RequestTypes.REFUSED
+        let c = this;
+        this.transition(() => {
+            c.setState({
+                status: RequestTypes.REFUSED
+            }, () => {$(`li.${this.props.request.guid} .statusLabel`).fadeIn("fast")});
+        });
+    }
+    transition(intermediaryFunction) {
+        $(`li.${this.props.request.guid} .buttons`).fadeOut("fast", () => {
+            intermediaryFunction();
         });
     }
     render() {
         let button;
         if (this.state.status === RequestTypes.WAITING) {
             button = (
-                        <div>
-                            <div className="accept" onClick={this.handleAccept}>ACCEPT</div>
-                            <div className="refuse" onClick={this.handleRefuse}>REJECT</div>
+                        <div className="buttons">
+                            <span className="button" onClick={this.handleAccept}>ACCEPT</span>
+                            <span> | </span>
+                            <span className="button" onClick={this.handleRefuse}>REJECT</span>
                         </div>
                     );
         } else if (this.state.status === RequestTypes.COMPLETED) {
-            button = (<div>COMPLETED</div>);
+            button = (<div className="statusLabel">COMPLETED</div>);
         } else if (this.state.status === RequestTypes.FAILED) {
-            button = (<div>FAILED</div>);
+            button = (<div className="statusLabel">FAILED</div>);
         } else if (this.state.status === RequestTypes.REFUSED) {
-            button = (<div>REFUSED</div>);
+            button = (<div className="statusLabel">REFUSED</div>);
         } else {
-            button = (<div className="inProgress">{this.state.progress} / {this.props.fileSize}</div>);
+            button = (<div className="statusLabel">{this.state.progress} / {this.props.request.fileSize}</div>);
         }
         return(
-            <div className="Request">
-                <li>
+            <li className={this.props.request.guid}>
                     <div className="fileName">
-                        {this.props.fileName}
+                        {this.props.request.fileName}
                     </div>
                     <div className="requestStatus">
                         {button}
                     </div>
-                </li>
-            </div>
+            </li>
         )
     }
  }
 
  Request.propTypes = {
-    fileName: PropTypes.string.isRequired,
-    fileSize: PropTypes.number.isRequired
+    request: PropTypes.object.isRequired,
  };
 
  export default Request;

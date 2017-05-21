@@ -26,6 +26,7 @@ var JOINMessage = {
 var ASKMessage = {
   type: "ASK",
   content: {
+    guid: "blabalblalbla",
     user: { ip: "10.0.0.1", name: "Simon", icon: "Bonhomme" },
     file: {
       name: "todo2017-05-05.txt",
