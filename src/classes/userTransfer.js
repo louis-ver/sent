@@ -9,3 +9,5 @@ class UserTransfer{
     get state(){return this._state;}
     set state(state){this._state = state;}
 }
+
+export default UserTransfer;

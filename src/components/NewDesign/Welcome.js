@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Motion, spring } from "react-motion";
 import EnterName from "./EnterName";
 import "./css/Welcome.css";
@@ -10,11 +11,6 @@ class Welcome extends React.Component {
     this.state = {
       submitted: false
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    this.setState({ submitted: true });
   }
 
   render() {
@@ -22,7 +18,7 @@ class Welcome extends React.Component {
       <div className="Welcome">
         <Motion
           style={{
-            y: spring(this.state.submitted ? -$(window).height() : 0, {
+            y: spring(this.props.me ? -$(window).height() : 0, {
               stiffness: 80,
               damping: 20
             })
@@ -38,7 +34,7 @@ class Welcome extends React.Component {
                 }}
               >
                 <h1 className="logo">sent</h1>
-                <EnterName onFormSubmit={this.handleSubmit} />
+                <EnterName />
               </div>
             </div>
           )}
@@ -47,5 +43,9 @@ class Welcome extends React.Component {
     );
   }
 }
+
+Welcome = connect((store, props) => {
+  return {me : store.me};
+})(Welcome);
 
 export default Welcome;

@@ -9,3 +9,5 @@ class OutgoingRequest{
     get file(){return this._file;}
     set file(file){this._file = file;}
 }
+
+export default OutgoingRequest;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addUserFromLogin } from "../../actions/index";
+import Me from "../../classes/me";
 
 const ip = require("ip");
 
@@ -17,11 +18,10 @@ class EnterName extends Component {
             if (!input.value.trim()) {
               return;
             }
-            // Sets Welcome state as "submitted: true"
-            this.props.onFormSubmit(true);
             // Change Redux state to include "me"
+            debugger;
             this.props.dispatch(
-              addUserFromLogin({ name: input.value, ip: ip.address() })
+              addUserFromLogin(new Me(input.value))
             );
           }}
         >
@@ -40,9 +40,5 @@ class EnterName extends Component {
 }
 // Connect to Redux Store
 EnterName = connect()(EnterName);
-
-EnterName.propTypes = {
-  onFormSubmit: PropTypes.func.isRequired
-};
 
 export default EnterName;

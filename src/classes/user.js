@@ -12,3 +12,5 @@ class User {
     get incomingRequests() {return this._incomingRequests;}
     set incomingRequests(incomingRequests) {this._incomingRequests = incomingRequests;}
 }
+
+export default User;

@@ -1,7 +1,7 @@
 const actionType = require("../constants/ActionTypes");
 
 const initialState = {
-  me: { name: ""},
+  me: null,
   users: [], // {ip : 192.168.0.3, name: Simon, incomingRequests: [incomingRequest]}
   outgoingRequests: [] // {usersTransfers : [userTransfer], file: {file}} //UserTransfer {ip: 192.168.0.3, state: "waiting"}
 };

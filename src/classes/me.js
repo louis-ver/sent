@@ -9,3 +9,5 @@ class Me {
     get color() {return this._color;}
     set color(color){this._color = color;}
 }
+
+export default Me;
