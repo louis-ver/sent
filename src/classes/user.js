@@ -1,8 +1,8 @@
 class User {
-    constructor(ip, name){
+    constructor(ip, name, incomingRequests = []){
         this._ip = ip;
         this._name = name;
-        this._incomingRequests = [];
+        this._incomingRequests = incomingRequests;
     }
 
     get ip() {return this._ip;}
