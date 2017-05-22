@@ -30,6 +30,7 @@ class EnterName extends Component {
               input = node;
             }}
             autoFocus
+            placeholder="John Appleseed"
           />
           <button type="submit" className="hidden" />
         </form>

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import RequestTypes from "../../constants/RequestTypes"
+import RequestTypes from "../../constants/RequestTypes";
 import $ from "jquery";
+import filesize from "filesize";
 import "./css/Request.css";
 
 class Request extends Component {
@@ -14,6 +15,7 @@ class Request extends Component {
         this.handleAccept = this.handleAccept.bind(this);
         this.handleRefuse = this.handleRefuse.bind(this);
         this.transition = this.transition.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
     }
     handleAccept(event) {
         let c = this;
@@ -31,6 +33,9 @@ class Request extends Component {
                 status: RequestTypes.REFUSED
             }, () => {$(`li.${this.props.request.guid} .statusLabel`).fadeIn("fast")});
         });
+    }
+    handleCancel(event) {
+        // Delete incoming request from User
     }
     transition(intermediaryFunction) {
         $(`li.${this.props.request.guid} .buttons`).fadeOut("fast", () => {
@@ -54,7 +59,7 @@ class Request extends Component {
         } else if (this.state.status === RequestTypes.REFUSED) {
             button = (<div className="statusLabel">DECLINED</div>);
         } else {
-            button = (<div className="statusLabel">{this.state.progress} / {this.props.request.fileSize}</div>);
+            button = (<div className="statusLabel">{this.state.progress} / {filesize(this.props.request.fileSize)} | <span className="button" onClick={this.handleCancel}>CANCEL</span></div>);
         }
         return(
             <li className={this.props.request.guid}>
