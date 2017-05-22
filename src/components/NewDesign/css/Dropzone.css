@@ -13,6 +13,9 @@
     top: 50%;
     transform: translateY(-50%);
 }
+.fileSize {
+    color: black;
+}
 .prompt-active {
     -webkit-animation: color-change 1s infinite;
     -moz-animation: color-change 1s infinite;
