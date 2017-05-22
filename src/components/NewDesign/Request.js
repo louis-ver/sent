@@ -43,7 +43,7 @@ class Request extends Component {
             button = (
                         <div className="buttons">
                             <span className="button" onClick={this.handleAccept}>ACCEPT</span>
-                            <span> | </span>
+                            <span className="spliter"> | </span>
                             <span className="button" onClick={this.handleRefuse}>REJECT</span>
                         </div>
                     );
