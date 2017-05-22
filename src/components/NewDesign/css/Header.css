@@ -1,9 +1,11 @@
 .header {
+    padding-top: 12px;
     position:fixed;
     top:0;
     height: 30px;
     width:100%;
     color: white;
+    -webkit-app-region: drag;
 }
 
 .headerContent{

@@ -1,6 +1,11 @@
 body{
     padding: 0;
     margin: 0;
+    -webkit-user-select: none;
+}
+
+button {
+    -webkit-app-region: no-drag;
 }
 
 .Main{
