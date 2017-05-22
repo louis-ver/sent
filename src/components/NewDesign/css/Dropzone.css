@@ -2,6 +2,8 @@
     height: 150px;
     border: 2px dashed black;
     text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 .prompt, .prompt-active {
     width: 50%;

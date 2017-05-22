@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import UserList from "./UserList";
 import "./css/MainContent.css";
 import Dropzone from './Dropzone';
+import Send from "./Send";
 
 class MainContent extends Component {
     render() {
@@ -9,6 +10,7 @@ class MainContent extends Component {
             <div className="MainContent">
                 <UserList />
                 <Dropzone />
+                <Send />
             </div>
         )
     }
