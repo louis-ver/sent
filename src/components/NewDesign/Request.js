@@ -44,7 +44,7 @@ class Request extends Component {
                         <div className="buttons">
                             <span className="button" onClick={this.handleAccept}>ACCEPT</span>
                             <span className="spliter"> | </span>
-                            <span className="button" onClick={this.handleRefuse}>REJECT</span>
+                            <span className="button" onClick={this.handleRefuse}>DECLINE</span>
                         </div>
                     );
         } else if (this.state.status === RequestTypes.COMPLETED) {
@@ -52,7 +52,7 @@ class Request extends Component {
         } else if (this.state.status === RequestTypes.FAILED) {
             button = (<div className="statusLabel">FAILED</div>);
         } else if (this.state.status === RequestTypes.REFUSED) {
-            button = (<div className="statusLabel">REFUSED</div>);
+            button = (<div className="statusLabel">DECLINED</div>);
         } else {
             button = (<div className="statusLabel">{this.state.progress} / {this.props.request.fileSize}</div>);
         }
