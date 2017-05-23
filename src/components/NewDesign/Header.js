@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import "./css/Header.css";
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
 
     if(!this.props.me) return null;

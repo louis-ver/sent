@@ -14,8 +14,12 @@ let mainWindow;
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 400, height: 480 , titleBarStyle: 'hidden'});
-  // mainWindow.webContents.openDevTools();
+  mainWindow = new BrowserWindow(
+    { width: 400,
+      height: 480,
+      titleBarStyle: 'hidden',
+      minWidth: 310
+    });
 
   // and load the index.html of the app.
   mainWindow.loadURL("http://localhost:3000");
@@ -25,7 +29,7 @@ function createWindow() {
   server.init();
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {

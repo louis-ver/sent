@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Motion, spring } from "react-motion";
 import EnterName from "./EnterName";
 import "./css/Welcome.css";
-import $ from "jquery";
 
 class Welcome extends React.Component {
   constructor(props) {

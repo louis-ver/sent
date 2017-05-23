@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { Motion, spring } from "react-motion";
 import { connect } from "react-redux";
 import $ from "jquery";
 
 import Welcome from "./NewDesign/Welcome";
 import Main from "./NewDesign/Main";
-import Request from "./NewDesign/Request";
 import "./App.css";
 
 class App extends Component {

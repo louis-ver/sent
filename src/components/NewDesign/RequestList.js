@@ -9,7 +9,7 @@ class RequestList extends Component {
         const requestItems = requestList.map((request) =>
             <Request request={request} key={request.guid} />
         );
-        let requestHeader = this.props.user.incomingRequests.length ? <span>Incoming Requests</span> : null
+        let requestHeader = this.props.user.incomingRequests.length ? "Incoming Requests" : "";
         return (
             <div className="RequestList">
             <span>{requestHeader}</span>

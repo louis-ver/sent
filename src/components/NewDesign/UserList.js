@@ -19,7 +19,6 @@ class UserList extends Component {
 }
 
 UserList = connect((store, props) => {
-    console.log(store.users);
     return {users: store.users}
 })(UserList);
 

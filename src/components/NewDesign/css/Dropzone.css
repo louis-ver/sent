@@ -6,15 +6,23 @@
     cursor: pointer;
 }
 .prompt, .prompt-active {
-    width: 50%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .fileSize {
     color: black;
+}
+.cancel {
+    color: #6E00B9;
+    /*margin-top: 20px;*/
+    font-size: 0.7em;
 }
 .prompt-active {
     -webkit-animation: color-change 1s infinite;
