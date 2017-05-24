@@ -5,11 +5,12 @@ li {
     border-bottom: 1px solid #979797;
 }
 .requestStatus-active .button {
-    color: #969696;
-}
-.requestStatus-active .button:hover {
     color: white;
 }
+.requestStatus-active .button:hover {
+    color: #969696;
+}
+
 .fileName {
     float: left;
     display: inline-block;

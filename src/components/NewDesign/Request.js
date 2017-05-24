@@ -29,6 +29,7 @@ class Request extends Component {
         });
     }
     handleRefuse(event) {
+        event.stopPropagation();
         let c = this;
         this.transition(() => {
             c.setState({
@@ -37,6 +38,7 @@ class Request extends Component {
         });
     }
     handleCancel(event) {
+        event.stopPropagation();
         // Delete incoming request from User
     }
     transition(intermediaryFunction) {
