@@ -4,8 +4,11 @@ li {
     padding: 5px 0 5px 0;
     border-bottom: 1px solid #979797;
 }
-.Request {
-    width: 100%;
+.requestStatus-active .button {
+    color: #969696;
+}
+.requestStatus-active .button:hover {
+    color: white;
 }
 .fileName {
     float: left;
@@ -30,7 +33,7 @@ li {
     cursor: default;
 }
 
-.requestStatus {
+.requestStatus, .requestStatus-active {
     display: inline-block;
     width: 35%;
     text-align: right;

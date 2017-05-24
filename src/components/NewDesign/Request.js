@@ -18,7 +18,9 @@ class Request extends Component {
         this.handleCancel = this.handleCancel.bind(this);
     }
     handleAccept(event) {
+        event.stopPropagation();
         let c = this;
+        console.log("After propagation");
         this.transition(() => {
             // debugger;
             c.setState({ 
@@ -44,6 +46,7 @@ class Request extends Component {
     }
     render() {
         let button;
+        let activeClass = this.props.active ? "requestStatus-active" : "requestStatus";
         if (this.state.status === RequestTypes.WAITING) {
             button = (
                         <div className="buttons">
@@ -66,7 +69,7 @@ class Request extends Component {
                     <div className="fileName">
                         {this.props.request.fileName}
                     </div>
-                    <div className="requestStatus">
+                    <div className={activeClass}>
                         {button}
                     </div>
             </li>

@@ -1,12 +1,16 @@
-.User {
+.User, .User-active {
     border: 2px solid black;
     margin-bottom: 10px;
     padding: 10px;
     cursor: pointer;
 }
+.User-active {
+    background-color: black;
+    color: white;
+}
 .name {
     font-size: 1.8em;
 }
-.User ul {
+.User ul, .User-active ul {
     width: 95%;
 }

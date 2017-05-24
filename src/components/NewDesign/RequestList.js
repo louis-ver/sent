@@ -7,7 +7,7 @@ class RequestList extends Component {
     render() {
         const requestList = this.props.user.incomingRequests;
         const requestItems = requestList.map((request) =>
-            <Request request={request} key={request.guid} />
+            <Request request={request} key={request.guid} active={this.props.active} />
         );
         let requestHeader = this.props.user.incomingRequests.length ? "Incoming Requests" : "";
         return (
