@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 // import PropTypes from "prop-types";
-import { addUserFromLogin } from "../../actions/index";
-import Me from "../../classes/me";
+import { addUserFromLogin } from "../actions/index";
+import Me from "../classes/me";
 
 // const ip = require("ip");
 
@@ -19,9 +19,7 @@ class EnterName extends Component {
               return;
             }
             // Change Redux state to include "me"
-            this.props.dispatch(
-              addUserFromLogin(new Me(input.value))
-            );
+            this.props.dispatch(addUserFromLogin(new Me(input.value)));
           }}
         >
           <label>Enter your name:</label>
