@@ -24,6 +24,8 @@ class User extends Component {
 
 User.propTypes = {
     user: PropTypes.object.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    active: PropTypes.bool.isRequired
 };
 
 export default User;

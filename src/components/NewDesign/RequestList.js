@@ -23,6 +23,7 @@ class RequestList extends Component {
 
 RequestList.propTypes = {
     user: PropTypes.object.isRequired,
+    active: PropTypes.bool.isRequired
 };
 
 export default RequestList;

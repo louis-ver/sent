@@ -81,6 +81,7 @@ class Request extends Component {
 
  Request.propTypes = {
     request: PropTypes.object.isRequired,
+    active: PropTypes.bool.isRequired
  };
 
  export default Request;
