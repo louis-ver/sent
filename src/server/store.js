@@ -1,15 +1,8 @@
-import { createStore } from "redux";
+const { createStore } = require('redux');
+const { sent } = require("../reducers/sent");
 
-class Store {
-  get instance() {
-    if (this.instance === undefined) {
-      this.instance = createStore(sent);
-    } else {
-      return this.instance;
-    }
-  }
-}
+let store = createStore(sent);
 
 module.exports = {
-  Store: Store
-};
+  Store: store
+}
