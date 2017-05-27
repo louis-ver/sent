@@ -1,5 +1,11 @@
-// const sent = require("../../reducers/sent");
 const ip = require("ip");
+// const broadcaster = require("../utils/broadcaster");
+const {Join} = require("../actions/join");
+
+function join(me){
+  let join = new Join(me);
+  // broadcaster.broadcast(join);
+}
 
 function welcome(senderIp) {
   console.log(ip.address());
@@ -20,6 +26,7 @@ function addUser(action, senderIp) {
 }
 
 module.exports = {
+  join : join,
   addUser: addUser,
   welcome: welcome
 };

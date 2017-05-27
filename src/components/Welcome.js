@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import EnterName from "./EnterName";
+import CEnterName from "../containers/CEnterName";
 import "./css/Welcome.css";
 
 class Welcome extends React.Component {
@@ -15,7 +15,7 @@ class Welcome extends React.Component {
     return (
       <div className="Welcome">
         <h1 className="logo">sent</h1>
-        <EnterName />
+        <CEnterName />
       </div>
     );
   }

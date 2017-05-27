@@ -7,6 +7,10 @@ import Me from "../classes/me";
 // const ip = require("ip");
 
 class EnterName extends Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
     let input;
 
@@ -19,7 +23,8 @@ class EnterName extends Component {
               return;
             }
             // Change Redux state to include "me"
-            this.props.dispatch(addUserFromLogin(new Me(input.value)));
+            debugger;
+            this.props.addUserFromLogin(input.value);
           }}
         >
           <label>Enter your name:</label>
