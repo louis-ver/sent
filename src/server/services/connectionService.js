@@ -1,10 +1,16 @@
 const ip = require("ip");
-// const broadcaster = require("../utils/broadcaster");
+const broadcaster = require("../utils/broadcaster");
 const {Join} = require("../actions/join");
+const actionCreator = require("../../actions/index");
+
 
 function join(me){
-  let join = new Join(me);
-  // broadcaster.broadcast(join);
+      let join = JSON.stringify(
+      actionCreator.addUserFromJoin({ name: "John Dole", ip: "34.65.75.234" })
+    );
+    broadcaster.broadcast(join);
+  // let join = JSON.stringify(new Join(me));
+  // broadcaster.broadcast(join);  
 }
 
 function welcome(senderIp) {

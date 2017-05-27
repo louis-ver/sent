@@ -21,6 +21,7 @@ function startUDP() {
     let message = JSON.parse(msg);
     switch (message.type) {
       case action.JOIN:
+      console.log("kk");
         connectionService.welcome(rinfo.address);
       case action.PING:
         connectionService.addUser(message, rinfo.address);

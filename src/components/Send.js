@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./css/Send.css";
+// const {ipcRenderer} = require('electron');
 
 class Send extends Component {
     constructor(props) {
@@ -10,6 +11,14 @@ class Send extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick(event) {
+
+        // console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+
+        // ipcRenderer.on('asynchronous-reply', (event, arg) => {
+        // console.log(arg) // prints "pong"
+        // })
+        // ipcRenderer.send('asynchronous-message', 'ping')
+
         this.setState({sending: !this.state.sending});
     }
     render() {

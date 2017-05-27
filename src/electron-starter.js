@@ -1,4 +1,5 @@
 const electron = require("electron");
+const {ipcMain} = require('electron');
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
@@ -26,6 +27,16 @@ function createWindow() {
 
   // TODO: Make sure server is not already running
   // Causes bug when window closed, then reopened.
+
+  ipcMain.on('asynchronous-message', (event, arg) => {
+    console.log(arg)  // prints "ping"
+    event.sender.send('asynchronous-reply', 'pong')
+  })
+
+  ipcMain.on('synchronous-message', (event, arg) => {
+    console.log(arg)  // prints "ping"
+    event.returnValue = 'pong'
+  })
   server.init();
 
   // Open the DevTools.
