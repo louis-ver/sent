@@ -8,7 +8,6 @@ const connectionService = require("../server/services/connectionService");
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     addUserFromLogin: (name) => {
-        debugger;
         let me = new Me(name);
         dispatch(addUserFromLogin(me));
         connectionService.join(me);

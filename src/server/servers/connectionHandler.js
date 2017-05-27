@@ -21,13 +21,10 @@ function startUDP() {
     let message = JSON.parse(msg);
     switch (message.type) {
       case action.JOIN:
-      console.log("kk");
         connectionService.welcome(rinfo.address);
       case action.PING:
         connectionService.addUser(message, rinfo.address);
-        // Broadcast PING message to everyone
-        console.log("Received JOIN message");
-      // If user not in online user list, add to list
+        // If user not in online user list, add to list
       case action.LEAVE:
       // Remove user from online user list
       default:

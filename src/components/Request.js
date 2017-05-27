@@ -22,7 +22,6 @@ class Request extends Component {
     let c = this;
     console.log("After propagation");
     this.transition(() => {
-      // debugger;
       c.setState(
         {
           status: RequestTypes.IN_PROGRESS

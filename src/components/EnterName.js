@@ -23,7 +23,6 @@ class EnterName extends Component {
               return;
             }
             // Change Redux state to include "me"
-            debugger;
             this.props.addUserFromLogin(input.value);
           }}
         >

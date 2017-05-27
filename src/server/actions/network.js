@@ -1,6 +1,7 @@
 class Network {
-    constructor(action){
-        this.action = action;
+    constructor(type, content){
+        this.type = type;
+        this.content = content;
     }
 }
 
