@@ -10,10 +10,10 @@ function startUDP() {
 
   // When server first launches, announce to everyone
   connectionServer.on("listening", () => {
-    let join = JSON.stringify(
-      actionCreator.addUserFromJoin({ name: "John Dole", ip: "34.65.75.234" })
-    );
-    broadcaster.broadcast(join);
+    // let join = JSON.stringify(
+    //   actionCreator.addUserFromJoin({ name: "John Dole", ip: "34.65.75.234" })
+    // );
+    // broadcaster.broadcast(join);
   });
 
   // Connection Server receives a JOIN, PING, or LEAVE message
@@ -24,6 +24,7 @@ function startUDP() {
         connectionService.welcome(rinfo.address);
       case action.PING:
         connectionService.addUser(message, rinfo.address);
+        break;
         // If user not in online user list, add to list
       case action.LEAVE:
       // Remove user from online user list

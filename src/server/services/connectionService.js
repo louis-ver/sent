@@ -1,8 +1,7 @@
 const ip = require("ip");
 const broadcaster = require("../utils/broadcaster");
-const actionCreator = require("../../actions/index");
-
 const {Join} = require("../actions/join");
+const {Ping} = require("../actions/ping");
 
 function join(me){
   let join = new Join(me);
@@ -12,17 +11,16 @@ function join(me){
 function welcome(senderIp) {
   if (senderIp === ip.address()) return; //We don't want to welcome ourselves. That would be odd...
 
-  //Add to user list
   //Send ping back
-  const welcome = {
-    type: "PING",
-    user: {}
-  };
+  let ping = new Ping("Simon");
+  broadcaster.broadcast(ping);
 }
 
 function addUser(action, senderIp) {
+  console.log("addUser");
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
 
+  console.log(`Inconnu:${senderIp}`);
   // action.user.ip = senderIp;
   // sent.sent(action);
 }
