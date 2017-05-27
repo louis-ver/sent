@@ -1,12 +1,15 @@
 const ip = require("ip");
 const broadcaster = require("../utils/broadcaster");
 const actionCreator = require("../../actions/index");
+const net = require("net");
 
-const {Join} = require("../actions/join");
+const { Join } = require("../actions/join");
 
-function join(me){
+function join(me) {
   let join = new Join(me);
   broadcaster.broadcast(join);
+  let socket = new net.Socket();
+  console.log(socket);
 }
 
 function welcome(senderIp) {
@@ -28,7 +31,7 @@ function addUser(action, senderIp) {
 }
 
 module.exports = {
-  join : join,
+  join: join,
   addUser: addUser,
   welcome: welcome
 };
