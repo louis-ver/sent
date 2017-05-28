@@ -4,7 +4,7 @@ const net = require("net");
 
 const { Join } = require("../actions/join");
 const {Ping} = require("../actions/ping");
-const Store = require("../store");
+const { Store } = require("../store");
 const actionCreator = require("../../actions/index");
 
 function join(me) {
@@ -26,10 +26,12 @@ function addUser(user, senderIp) {
   console.log("addUser");
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
 
-  console.log(`Inconnu:${senderIp}`);
+  console.log(`${user.name}:${senderIp}`);
 
   // Add user to store
   let store = Store;
+  console.log("Store:");
+  console.log(store);
   store.dispatch(actionCreator.addUserFromLogin({name: user.name, ip: senderIp}));
 }
 
