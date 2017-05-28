@@ -29,7 +29,7 @@ function addUser(user, senderIp) {
   console.log(`Inconnu:${senderIp}`);
 
   // Add user to store
-  let store = Store;
+  let store = store;
   store.dispatch(actionCreator.addUserFromLogin({name: user.name, ip: senderIp}));
 }
 
