@@ -18,22 +18,21 @@ function welcome(senderIp) {
   if (senderIp === ip.address()) return; //We don't want to welcome ourselves. That would be odd...
 
   //Send ping back
-  let store = Store;
-  let ping = new Ping(store.getState().me.name);
+  let ping = new Ping("Simon");
   broadcaster.broadcast(ping);
 }
 
 function addUser(user, senderIp) {
-  console.log(`User content in addUser: ${JSON.stringify(user)}`);
+  console.log("addUser");
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
 
-  console.log(`${user._name}:${senderIp}`);
+  console.log(`${user.name}:${senderIp}`);
 
   // Add user to store
   let store = Store;
   console.log("Store:");
   console.log(store);
-  store.dispatch(actionCreator.addUserFromPing({name: user._name, ip: senderIp}));
+  store.dispatch(actionCreator.addUserFromLogin({name: user.name, ip: senderIp}));
 }
 
 module.exports = {
