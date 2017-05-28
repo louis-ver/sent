@@ -1,4 +1,5 @@
 const actionType = require("../constants/ActionTypes");
+import IncomingRequest from "../classes/incomingRequest.js";
 
 const initialState = {
   me: null,

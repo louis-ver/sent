@@ -23,7 +23,7 @@ function startUDP() {
       case action.JOIN:
         connectionService.welcome(rinfo.address);
       case action.PING:
-        connectionService.addUser(message.content, rinfo.address);
+        connectionService.addUser(message, rinfo.address);
         break;
         // If user not in online user list, add to list
       case action.LEAVE:

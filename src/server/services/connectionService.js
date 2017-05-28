@@ -4,8 +4,6 @@ const net = require("net");
 
 const { Join } = require("../actions/join");
 const {Ping} = require("../actions/ping");
-const Store = require("../store");
-const actionCreator = require("../../actions/index");
 
 function join(me) {
   let join = new Join(me);
@@ -22,15 +20,13 @@ function welcome(senderIp) {
   broadcaster.broadcast(ping);
 }
 
-function addUser(user, senderIp) {
+function addUser(action, senderIp) {
   console.log("addUser");
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
 
   console.log(`Inconnu:${senderIp}`);
-
-  // Add user to store
-  let store = store;
-  store.dispatch(actionCreator.addUserFromLogin({name: user.name, ip: senderIp}));
+  // action.user.ip = senderIp;
+  // sent.sent(action);
 }
 
 module.exports = {
