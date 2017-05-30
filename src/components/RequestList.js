@@ -5,17 +5,18 @@ import "./css/RequestList.css";
 
 class RequestList extends Component {
   render() {
-    const requestList = this.props.user.incomingRequests;
+    const requestList = this.props.requests;
+    console.log(`RequestList: ${typeof requestList}`);
     const requestItems = requestList.map(request => (
       <Request
         request={request}
-        key={request.guid}
-        selected={this.props.selected}
+        key={request.id}
+        onAccept={this.props.onAccept}
+        onDecline={this.props.onDecline}
+        onCancel={this.props.onCancel}
       />
     ));
-    let requestHeader = this.props.user.incomingRequests.length
-      ? "Incoming Requests"
-      : "";
+    let requestHeader = requestList.length ? "Incoming Requests" : null;
     return (
       <div className="RequestList">
         <span>{requestHeader}</span>
@@ -27,9 +28,8 @@ class RequestList extends Component {
   }
 }
 
-RequestList.propTypes = {
-  user: PropTypes.object.isRequired,
-  selected: PropTypes.bool.isRequired
-};
+// RequestList.propTypes = {
+//   user: PropTypes.object.isRequired
+// };
 
 export default RequestList;

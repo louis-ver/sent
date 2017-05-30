@@ -1,8 +1,0 @@
-module.exports = {
-    WAITING: "WAITING",
-    ACCEPTED: "ACCEPTED",
-    REFUSED: "REFUSED",
-    IN_PROGRESS: "IN_PROGRESS",
-    COMPLETED: "COMPLETED",
-    FAILED: "FAILED"
-}

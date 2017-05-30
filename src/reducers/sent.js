@@ -3,28 +3,27 @@ import IncomingRequest from "../classes/incomingRequest.js";
 
 const initialState = {
   me: null,
-  users: [],
-  // users: [
-  //   {
-  //     ip: "10.0.0.1",
-  //     name: "Louis-Olivier",
-  //     incomingRequests: [
-  //       new IncomingRequest("raiders_of_the_lost_ark.mkv", 1432948),
-  //       new IncomingRequest("babys_arms.mp3", 14392487372),
-  //       new IncomingRequest("IMG_3405.jpg", 184332)
-  //     ]
-  //   },
-  //   {
-  //     ip: "10.0.0.2",
-  //     name: "Simon",
-  //     incomingRequests: [] },
-  //   {
-  //     ip: "10.0.0.3",
-  //     name: "Henri",
-  //     incomingRequests: [
-  //       new IncomingRequest("henri_joue.mov", 87456532)]
-  //   }
-  // ], // {ip : 192.168.0.3, name: Simon, incomingRequests: [incomingRequest]}
+  users: [
+    {
+      ip: "10.0.0.1",
+      name: "Louis-Olivier",
+      incomingRequests: [
+        new IncomingRequest("raiders_of_the_lost_ark.mkv", 1432948),
+        new IncomingRequest("babys_arms.mp3", 14392487372),
+        new IncomingRequest("IMG_3405.jpg", 184332)
+      ]
+    },
+    {
+      ip: "10.0.0.2",
+      name: "Simon",
+      incomingRequests: []
+    },
+    {
+      ip: "10.0.0.3",
+      name: "Henri",
+      incomingRequests: [new IncomingRequest("henri_joue.mov", 87456532)]
+    }
+  ], // {ip : 192.168.0.3, name: Simon, incomingRequests: [incomingRequest]}
   outgoingRequests: [] // {usersTransfers : [userTransfer], file: {file}} //UserTransfer {ip: 192.168.0.3, state: "waiting"}
 };
 

@@ -1,0 +1,99 @@
+import _ from "lodash";
+import { requestType, requestStatus } from "../constants/requests";
+
+const initialState = {
+  me: null,
+  users: {
+    byId: {
+      "43940E38-07DA-4800-A16B-D37E1EDDC5EE": {
+        id: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
+        name: "Louis-Olivier",
+        ip: "10.0.0.1"
+      },
+      "15184910-538E-43ED-8294-863696EFCAB7": {
+        id: "15184910-538E-43ED-8294-863696EFCAB7",
+        name: "Simon",
+        ip: "10.0.0.2"
+      }
+    },
+    allIds: [
+      "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
+      "15184910-538E-43ED-8294-863696EFCAB7"
+    ]
+  },
+  requests: {
+    byId: {
+      "B41B37C4-D0C6-40CD-BE12-AF9138D9CCA0": {
+        id: "B41B37C4-D0C6-40CD-BE12-AF9138D9CCA0",
+        sender: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
+        file: {},
+        status: requestStatus.WAITING,
+        type: requestType.INCOMING
+      },
+      "3DE395DD-DAB7-4EF9-8F9E-77F369B3F918": {
+        id: "3DE395DD-DAB7-4EF9-8F9E-77F369B3F918",
+        sender: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
+        file: {},
+        status: requestStatus.WAITING,
+        type: requestType.INCOMING
+      },
+      "D29275F8-9CF3-4A61-9D61-0FD678263F6E": {
+        id: "D29275F8-9CF3-4A61-9D61-0FD678263F6E",
+        sender: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
+        file: {},
+        status: requestStatus.IN_PROGRESS,
+        type: requestType.OUTGOING
+      }
+    },
+    allIds: [
+      "B41B37C4-D0C6-40CD-BE12-AF9138D9CCA0",
+      "D29275F8-9CF3-4A61-9D61-0FD678263F6E"
+    ]
+  }
+};
+
+// selectors
+function getUserIDs(state) {
+  return state.allIds;
+}
+function getUser(state, id) {
+  return state.users.byId[id];
+}
+function getAllUserIds(state) {
+  return state.users.allIds;
+}
+function getUserList(state) {
+  const users = state.users.byId;
+  return Object.keys(users).map(key => {
+    return {
+      id: key,
+      name: users[key].name
+    };
+  });
+}
+function getRequestIDs(state) {
+  return state.requests.allIds;
+}
+function getRequest(state, id) {
+  return state.requests.byId[id];
+}
+function filteredRequestIdsForUser(state, userId, filter) {
+  const requests = state.requests.byId;
+  return Object.keys(requests).map(key => {
+    return {
+      id: key,
+      status: requests[key].status,
+      file: requests[key].file
+    };
+  });
+}
+
+module.exports = {
+  initialState: initialState,
+  getUserIDs: getUserIDs,
+  getUser: getUser,
+  getUserList: getUserList,
+  getRequestIDs: getRequestIDs,
+  getRequest: getRequest,
+  filteredRequestIdsForUser: filteredRequestIdsForUser
+};
