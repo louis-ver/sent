@@ -6,7 +6,6 @@ import "./css/RequestList.css";
 class RequestList extends Component {
   render() {
     const requestList = this.props.requests;
-    console.log(`RequestList: ${typeof requestList}`);
     const requestItems = requestList.map(request => (
       <Request
         request={request}
