@@ -1,3 +1,11 @@
+.Login {
+  height: 100vh;
+}
+.content {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
 label {
   display: block;
   font-size: 1.3em;
@@ -28,12 +36,6 @@ input::-webkit-input-placeholder {
   -webkit-margin-after: 0.2em;
   margin-bottom: 0.2em;
 }
-.Welcome {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 20px;
-  margin-left: 20px;
-}
 .hidden {
-  visibility: hidden;
+  display: none;
 }

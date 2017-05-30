@@ -1,7 +1,8 @@
 import React from "react";
+import "./css/RequestButton.css";
 
 const RequestButton = ({ onClick, text, id }) => (
-  <div onClick={() => onClick(id)}>{text}</div>
+  <span className="RequestButton" onClick={() => onClick(id)}>{text}</span>
 );
 
 export default RequestButton;

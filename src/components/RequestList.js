@@ -17,7 +17,7 @@ class RequestList extends Component {
     let requestHeader = requestList.length ? "Incoming Requests" : null;
     return (
       <div className="RequestList">
-        <span>{requestHeader}</span>
+        <div className="requestHeader">{requestHeader}</div>
         <ul>
           {requestItems}
         </ul>

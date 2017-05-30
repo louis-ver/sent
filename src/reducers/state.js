@@ -2,7 +2,11 @@ import _ from "lodash";
 import { requestType, requestStatus } from "../constants/requests";
 
 const initialState = {
-  me: null,
+  me: {
+    id: "CA69D6BC-918D-42BC-AD7C-DA3B22FE6DEF",
+    name: "Louis-Olivier",
+    ip: "10.0.1.2"
+  },
   users: {
     byId: {
       "43940E38-07DA-4800-A16B-D37E1EDDC5EE": {

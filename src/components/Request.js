@@ -30,7 +30,8 @@ class Request extends Component {
         <RequestButton onClick={this.props.onRequestCancel} text="CANCEL" />
       );
     } else {
-      button = <RequestButton text="DECLINED" />;
+      const buttonStyle = { color: "black" };
+      button = <RequestButton text="DECLINED" style={buttonStyle} />;
     }
     return (
       <li className="Request">

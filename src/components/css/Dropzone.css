@@ -3,6 +3,8 @@
     border: 2px dashed black;
     text-align: center;
     margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     cursor: pointer;
 }
 .prompt, .prompt-active {

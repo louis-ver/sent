@@ -6,7 +6,7 @@ class User extends Component {
   render() {
     return (
       <li className="User">
-        <span>{this.props.name}</span>
+        <span className="userName">{this.props.name}</span>
         <RequestServices userId={this.props.id} />
       </li>
     );

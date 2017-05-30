@@ -1,0 +1,7 @@
+.RequestButton {
+  margin-left: 10px;
+  color: #6E00B9;
+}
+.RequestButton:hover {
+  color: black;
+}
