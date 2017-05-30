@@ -1,5 +1,5 @@
 const electron = require("electron");
-const {ipcMain} = require('electron');
+const { ipcMain } = require("electron");
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
@@ -14,12 +14,12 @@ let mainWindow;
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow(
-    { width: 400,
-      height: 480,
-      titleBarStyle: 'hidden',
-      minWidth: 310
-    });
+  mainWindow = new BrowserWindow({
+    width: 400,
+    height: 480,
+    titleBarStyle: "hidden",
+    minWidth: 340
+  });
 
   // and load the index.html of the app.
   mainWindow.loadURL("http://localhost:3000");
@@ -27,19 +27,19 @@ function createWindow() {
   // TODO: Make sure server is not already running
   // Causes bug when window closed, then reopened.
 
-  ipcMain.on('asynchronous-message', (event, arg) => {
-    console.log(arg)  // prints "ping"
-    event.sender.send('asynchronous-reply', 'pong')
-  })
+  ipcMain.on("asynchronous-message", (event, arg) => {
+    console.log(arg); // prints "ping"
+    event.sender.send("asynchronous-reply", "pong");
+  });
 
-  ipcMain.on('synchronous-message', (event, arg) => {
-    console.log(arg)  // prints "ping"
-    event.returnValue = 'pong'
-  })
+  ipcMain.on("synchronous-message", (event, arg) => {
+    console.log(arg); // prints "ping"
+    event.returnValue = "pong";
+  });
   server.init();
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {
