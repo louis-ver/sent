@@ -10,12 +10,25 @@ class Request extends Component {
     if (status === requestStatus.WAITING) {
       button = (
         <div>
-          <RequestButton onClick={this.props.onAccept} text="ACCEPT" />
-          <RequestButton onClick={this.props.onDecline} text="DECLINE" />
+          <RequestButton
+            onClick={this.props.onRequestAccept}
+            text="ACCEPT"
+            id={this.props.request.id}
+          />
+          <RequestButton
+            onClick={this.props.onRequestDecline}
+            text="DECLINE"
+            id={this.props.request.id}
+          />
         </div>
       );
-    } else if (status === requestStatus.IN_PROGRESS) {
-      button = <RequestButton onClick={this.props.onCancel} text="CANCEL" />;
+    } else if (
+      status === requestStatus.IN_PROGRESS ||
+      status === requestStatus.ACCEPTED
+    ) {
+      button = (
+        <RequestButton onClick={this.props.onRequestCancel} text="CANCEL" />
+      );
     } else {
       button = <RequestButton text="DECLINED" />;
     }

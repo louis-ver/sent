@@ -7,14 +7,14 @@ const mapStateToProps = state => {
   return { users: getUserList(state) };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onClick: id => {
-      dispatch(setUserSelected(id));
-    }
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onClick: id => {
+//       dispatch(setUserSelected(id));
+//     }
+//   };
+// };
 
-const UserServices = connect(mapStateToProps, mapDispatchToProps)(UserList);
+const UserServices = connect(mapStateToProps, null)(UserList);
 
 export default UserServices;

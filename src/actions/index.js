@@ -8,7 +8,21 @@ function addUserFromLogin(name) {
     me: { id: uuid(), name: name, ip: ip.address() }
   };
 }
+function acceptRequest(id) {
+  return {
+    type: action.ACCEPT,
+    id: id
+  };
+}
+function declineRequest(id) {
+  return {
+    type: action.DECLINE,
+    id: id
+  };
+}
 
 module.exports = {
-  addUserFromLogin: addUserFromLogin
+  addUserFromLogin: addUserFromLogin,
+  acceptRequest: acceptRequest,
+  declineRequest: declineRequest
 };

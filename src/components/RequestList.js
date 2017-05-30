@@ -9,9 +9,9 @@ class RequestList extends Component {
       <Request
         request={request}
         key={request.id}
-        onAccept={this.props.onAccept}
-        onDecline={this.props.onDecline}
-        onCancel={this.props.onCancel}
+        onRequestAccept={this.props.onRequestAccept}
+        onRequestDecline={this.props.onRequestDecline}
+        onRequestCancel={this.props.onRequestCancel}
       />
     ));
     let requestHeader = requestList.length ? "Incoming Requests" : null;

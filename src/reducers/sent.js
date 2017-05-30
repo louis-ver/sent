@@ -1,4 +1,6 @@
 const actionType = require("../constants/ActionTypes");
+const requestStatus = require("../constants/requests").requestStatus;
+const _ = require("lodash");
 
 function sent(state, action) {
   // Modifies the state according to action type
@@ -8,10 +10,19 @@ function sent(state, action) {
       return Object.assign({}, state, {
         me: action.me
       });
-    // If JOIN, add user to users list
+    case actionType.ACCEPT:
+      return changeRequestStatus(state, action.id, requestStatus.ACCEPTED);
+    case actionType.DECLINE:
+      return changeRequestStatus(state, action.id, requestStatus.DECLINED);
     default:
       return state;
   }
+}
+
+function changeRequestStatus(state, requestId, status) {
+  let newState = JSON.parse(JSON.stringify(state));
+  newState.requests.byId[requestId].status = status;
+  return newState;
 }
 
 module.exports = {
