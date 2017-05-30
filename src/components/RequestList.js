@@ -28,8 +28,4 @@ class RequestList extends Component {
   }
 }
 
-// RequestList.propTypes = {
-//   user: PropTypes.object.isRequired
-// };
-
 export default RequestList;
