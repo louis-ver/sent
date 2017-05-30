@@ -26,21 +26,27 @@ const initialState = {
       "B41B37C4-D0C6-40CD-BE12-AF9138D9CCA0": {
         id: "B41B37C4-D0C6-40CD-BE12-AF9138D9CCA0",
         sender: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
-        file: {},
+        file: {
+          name: "raiders.mkv"
+        },
         status: requestStatus.WAITING,
         type: requestType.INCOMING
       },
       "3DE395DD-DAB7-4EF9-8F9E-77F369B3F918": {
         id: "3DE395DD-DAB7-4EF9-8F9E-77F369B3F918",
         sender: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
-        file: {},
+        file: {
+          name: "test.txt"
+        },
         status: requestStatus.WAITING,
         type: requestType.INCOMING
       },
       "D29275F8-9CF3-4A61-9D61-0FD678263F6E": {
         id: "D29275F8-9CF3-4A61-9D61-0FD678263F6E",
-        sender: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
-        file: {},
+        sender: "15184910-538E-43ED-8294-863696EFCAB7",
+        file: {
+          name: "wowowow.pdf"
+        },
         status: requestStatus.IN_PROGRESS,
         type: requestType.OUTGOING
       }
@@ -77,13 +83,19 @@ function getRequestIDs(state) {
 function getRequest(state, id) {
   return state.requests.byId[id];
 }
-function filteredRequestIdsForUser(state, userId, filter) {
+function filteredIncomingRequestsForUser(state, userId, filter) {
   const requests = state.requests.byId;
-  return Object.keys(requests).map(key => {
+  const filteredRequests = _.pickBy(requests, (value, key) => {
+    return (
+      requests[key].sender === userId &&
+      requests[key].type === requestType.INCOMING
+    );
+  });
+  return Object.keys(filteredRequests).map(key => {
     return {
       id: key,
-      status: requests[key].status,
-      file: requests[key].file
+      status: filteredRequests[key].status,
+      file: filteredRequests[key].file
     };
   });
 }
@@ -95,5 +107,5 @@ module.exports = {
   getUserList: getUserList,
   getRequestIDs: getRequestIDs,
   getRequest: getRequest,
-  filteredRequestIdsForUser: filteredRequestIdsForUser
+  filteredIncomingRequestsForUser: filteredIncomingRequestsForUser
 };

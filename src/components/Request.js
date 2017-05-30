@@ -23,7 +23,7 @@ class Request extends Component {
     }
     return (
       <li className="Request">
-        <div className="fileName">{this.props.request.fileName}</div>
+        <div className="fileName">{this.props.request.file.name}</div>
         <div className="buttons">{button}</div>
       </li>
     );

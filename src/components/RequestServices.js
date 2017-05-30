@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 import { acceptRequest, declineRequest, cancelRequest } from "../actions/index";
-import { filteredRequestIdsForUser } from "../reducers/state";
+import { filteredIncomingRequestsForUser } from "../reducers/state";
 import RequestList from "./RequestList";
 import { requestType } from "../constants/requests";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    requests: filteredRequestIdsForUser(
+    requests: filteredIncomingRequestsForUser(
       state,
       ownProps.userId,
       requestType.INCOMING
