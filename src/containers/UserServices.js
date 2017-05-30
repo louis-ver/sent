@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { getUserList } from "../reducers/state";
 import { setUserSelected } from "../actions/index";
-import UserList from "./UserList";
+import UserList from "../components/UserList";
 
 const mapStateToProps = state => {
   return { users: getUserList(state) };

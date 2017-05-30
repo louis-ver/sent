@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import RequestButton from "./RequestButton";
 import { requestStatus } from "../constants/requests";
-import filesize from "filesize";
 import "./css/Request.css";
 
 class Request extends Component {

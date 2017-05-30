@@ -1,19 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-// import PropTypes from "prop-types";
-import { addUserFromLogin } from "../actions/index";
-import Me from "../classes/me";
 
-// const ip = require("ip");
-
-class EnterName extends Component {
-  constructor(props){
-    super(props);
-  }
-
+class Login extends Component {
   render() {
     let input;
-
     return (
       <div>
         <form
@@ -23,7 +12,7 @@ class EnterName extends Component {
               return;
             }
             // Change Redux state to include "me"
-            this.props.addUserFromLogin(input.value);
+            this.props.onSubmit(input.value);
           }}
         >
           <label>Enter your name:</label>
@@ -40,7 +29,5 @@ class EnterName extends Component {
     );
   }
 }
-// Connect to Redux Store
-EnterName = connect()(EnterName);
 
-export default EnterName;
+export default Login;

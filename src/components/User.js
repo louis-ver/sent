@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import RequestServices from "./RequestServices";
+import RequestServices from "../containers/RequestServices";
 import "./css/User.css";
 
 class User extends Component {

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Request from "./Request";
 import "./css/RequestList.css";
 

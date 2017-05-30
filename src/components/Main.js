@@ -1,21 +1,20 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react";
 import Header from "./Header";
-import MainContent from "./MainContent";
+import UserServices from "../containers/UserServices";
+import Dropzone from "./Dropzone";
+import Send from "./Send";
 
-class Main extends React.Component {
+class Main extends Component {
   render() {
     return (
       <div className="Main">
-        <Header />
-        <MainContent />
+        <Header me={this.props.me} />
+        <UserServices />
+        <Dropzone />
+        <Send />
       </div>
     );
   }
 }
-
-Main = connect((store, props) => {
-  return {};
-})(Main);
 
 export default Main;

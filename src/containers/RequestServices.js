@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { acceptRequest, declineRequest, cancelRequest } from "../actions/index";
 import { filteredIncomingRequestsForUser } from "../reducers/state";
-import RequestList from "./RequestList";
+import RequestList from "../components/RequestList";
 import { requestType } from "../constants/requests";
 
 const mapStateToProps = (state, ownProps) => {

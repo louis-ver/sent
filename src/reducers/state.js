@@ -59,9 +59,6 @@ const initialState = {
 };
 
 // selectors
-function getUserIDs(state) {
-  return state.allIds;
-}
 function getUser(state, id) {
   return state.users.byId[id];
 }
@@ -102,7 +99,7 @@ function filteredIncomingRequestsForUser(state, userId, filter) {
 
 module.exports = {
   initialState: initialState,
-  getUserIDs: getUserIDs,
+  getAllUserIds: getAllUserIds,
   getUser: getUser,
   getUserList: getUserList,
   getRequestIDs: getRequestIDs,
