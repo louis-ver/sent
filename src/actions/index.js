@@ -20,9 +20,16 @@ function declineRequest(id) {
     id: id
   };
 }
+function cancelRequest(id) {
+  return {
+    type: action.CANCEL,
+    id: id
+  };
+}
 
 module.exports = {
   addUserFromLogin: addUserFromLogin,
   acceptRequest: acceptRequest,
-  declineRequest: declineRequest
+  declineRequest: declineRequest,
+  cancelRequest: cancelRequest
 };

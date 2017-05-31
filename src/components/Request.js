@@ -6,21 +6,24 @@ import "./css/Request.css";
 
 class Request extends Component {
   render() {
-    const status = this.props.request.status;
+    let request = this.props.request;
+    const status = request.status;
     let button = null;
     if (status === requestStatus.WAITING) {
       button = (
         <div>
-          <span>{filesize(this.props.request.file.size)}</span>
+          <span className="fileSize">
+            {filesize(request.file.size)}
+          </span>
           <RequestButton
             onClick={this.props.onRequestAccept}
             text="ACCEPT"
-            id={this.props.request.id}
+            id={request.id}
           />
           <RequestButton
             onClick={this.props.onRequestDecline}
             text="DECLINE"
-            id={this.props.request.id}
+            id={request.id}
           />
         </div>
       );
@@ -31,21 +34,26 @@ class Request extends Component {
       button = (
         <div>
           <span>
-            {Math.floor(
-              this.props.request.file.progress / this.props.request.file.size
-            )}
+            {Math.floor(request.file.progress / request.file.size)}
             %
           </span>
-          <RequestButton onClick={this.props.onRequestCancel} text="CANCEL" />
+          <RequestButton
+            onClick={this.props.onRequestCancel}
+            text="CANCEL"
+            id={request.id}
+          />
         </div>
       );
-    } else {
+    } else if (status === requestStatus.DECLINED) {
       const buttonStyle = { color: "black" };
       button = <RequestButton text="DECLINED" style={buttonStyle} />;
+    } else {
+      const buttonStyle = { color: "black" };
+      button = <RequestButton text="CANCELED" style={buttonStyle} />;
     }
     return (
       <li className="Request">
-        <div className="fileName">{this.props.request.file.name}</div>
+        <div className="fileName">{request.file.name}</div>
         <div className="buttons">{button}</div>
       </li>
     );

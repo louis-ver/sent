@@ -1,6 +1,5 @@
 const actionType = require("../constants/ActionTypes");
 const requestStatus = require("../constants/requests").requestStatus;
-const _ = require("lodash");
 
 function sent(state, action) {
   // Modifies the state according to action type
@@ -14,6 +13,8 @@ function sent(state, action) {
       return changeRequestStatus(state, action.id, requestStatus.ACCEPTED);
     case actionType.DECLINE:
       return changeRequestStatus(state, action.id, requestStatus.DECLINED);
+    case actionType.CANCEL:
+      return changeRequestStatus(state, action.id, requestStatus.CANCELED);
     default:
       return state;
   }

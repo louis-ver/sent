@@ -19,6 +19,9 @@ li {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.fileSize {
+  white-space: nowrap;
+}
 .buttons {
     text-align: right;
     display: inline-block;
