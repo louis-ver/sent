@@ -15,11 +15,14 @@ li {
     float: left;
     display: inline-block;
     color: #969696;
-    width: 65%;
+    width: 55%;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .buttons {
+    text-align: right;
+    display: inline-block;
+    width: 45%;
     text-align: right;
 }
 .button {
@@ -35,7 +38,5 @@ li {
 }
 
 .requestStatus, .requestStatus-active {
-    display: inline-block;
-    width: 35%;
-    text-align: right;
+
 }

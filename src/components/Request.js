@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import RequestButton from "./RequestButton";
 import { requestStatus } from "../constants/requests";
+import filesize from "filesize";
 import "./css/Request.css";
 
 class Request extends Component {
@@ -10,6 +11,7 @@ class Request extends Component {
     if (status === requestStatus.WAITING) {
       button = (
         <div>
+          <span>{filesize(this.props.request.file.size)}</span>
           <RequestButton
             onClick={this.props.onRequestAccept}
             text="ACCEPT"
@@ -27,7 +29,15 @@ class Request extends Component {
       status === requestStatus.ACCEPTED
     ) {
       button = (
-        <RequestButton onClick={this.props.onRequestCancel} text="CANCEL" />
+        <div>
+          <span>
+            {Math.floor(
+              this.props.request.file.progress / this.props.request.file.size
+            )}
+            %
+          </span>
+          <RequestButton onClick={this.props.onRequestCancel} text="CANCEL" />
+        </div>
       );
     } else {
       const buttonStyle = { color: "black" };

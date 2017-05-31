@@ -32,7 +32,9 @@ const initialState = {
         id: "B41B37C4-D0C6-40CD-BE12-AF9138D9CCA0",
         sender: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
         file: {
-          name: "raiders.mkv"
+          name: "raiders.mkv",
+          progress: 45,
+          size: 324987
         },
         status: requestStatus.WAITING,
         type: requestType.INCOMING
@@ -41,7 +43,9 @@ const initialState = {
         id: "3DE395DD-DAB7-4EF9-8F9E-77F369B3F918",
         sender: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
         file: {
-          name: "test.txt"
+          name: "test.txt",
+          progress: 0,
+          size: 86379387
         },
         status: requestStatus.WAITING,
         type: requestType.INCOMING
@@ -50,7 +54,9 @@ const initialState = {
         id: "D29275F8-9CF3-4A61-9D61-0FD678263F6E",
         sender: "15184910-538E-43ED-8294-863696EFCAB7",
         file: {
-          name: "wowowow.pdf"
+          name: "wowowow.pdf",
+          progress: 34,
+          size: 75466
         },
         status: requestStatus.IN_PROGRESS,
         type: requestType.OUTGOING
