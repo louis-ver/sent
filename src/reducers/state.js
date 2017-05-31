@@ -13,12 +13,14 @@ const initialState = {
       "43940E38-07DA-4800-A16B-D37E1EDDC5EE": {
         id: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
         name: "Louis-Olivier",
-        ip: "10.0.0.1"
+        ip: "10.0.0.1",
+        selected: false
       },
       "15184910-538E-43ED-8294-863696EFCAB7": {
         id: "15184910-538E-43ED-8294-863696EFCAB7",
         name: "Simon",
-        ip: "10.0.0.2"
+        ip: "10.0.0.2",
+        selected: false
       }
     },
     allIds: [

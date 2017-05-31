@@ -45,11 +45,9 @@ class Request extends Component {
         </div>
       );
     } else if (status === requestStatus.DECLINED) {
-      const buttonStyle = { color: "black" };
-      button = <RequestButton text="DECLINED" style={buttonStyle} />;
+      button = <span>DECLINED</span>;
     } else {
-      const buttonStyle = { color: "black" };
-      button = <RequestButton text="CANCELED" style={buttonStyle} />;
+      button = <span>CANCELED</span>;
     }
     return (
       <li className="Request">
