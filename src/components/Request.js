@@ -34,7 +34,7 @@ class Request extends Component {
       button = (
         <div>
           <span>
-            {Math.floor(request.file.progress / request.file.size)}
+            {Math.floor(request.file.progress / request.file.size * 100)}
             %
           </span>
           <RequestButton

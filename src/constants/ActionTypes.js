@@ -2,5 +2,6 @@ module.exports = {
   LOGIN: "LOGIN",
   DECLINE: "DECLINE",
   ACCEPT: "ACCEPT",
-  CANCEL: "CANCEL"
+  CANCEL: "CANCEL",
+  SELECT_USER: "SELECT_USER"
 };

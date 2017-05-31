@@ -5,7 +5,7 @@ import "./css/User.css";
 class User extends Component {
   render() {
     return (
-      <li className="User">
+      <li className="User" onClick={() => this.props.onClick(this.props.id)}>
         <span className="userName">{this.props.name}</span>
         <RequestServices userId={this.props.id} />
       </li>

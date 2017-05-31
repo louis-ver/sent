@@ -26,10 +26,17 @@ function cancelRequest(id) {
     id: id
   };
 }
+function setUserSelected(id) {
+  return {
+    type: action.SELECT_USER,
+    id: id
+  };
+}
 
 module.exports = {
   addUserFromLogin: addUserFromLogin,
   acceptRequest: acceptRequest,
   declineRequest: declineRequest,
-  cancelRequest: cancelRequest
+  cancelRequest: cancelRequest,
+  setUserSelected: setUserSelected
 };
