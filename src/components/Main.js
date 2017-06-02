@@ -6,11 +6,20 @@ import Send from "./Send";
 import "./css/Main.css";
 import { broadcast } from "../server/utils/broadcaster";
 import { addUserFromLogin } from "../actions/index";
+import dgram from "dgram";
+import { UDP_PORT } from "../constants/Addresses";
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    broadcast(addUserFromLogin(this.props.me));
+    const connectionServer = dgram.createSocket("udp4");
+    connectionServer.bind(UDP_PORT);
+    connectionServer.on("listening", () => {
+      broadcast(addUserFromLogin(this.props.me));
+    });
+    connectionServer.on("message", (msg, rinfo) => {
+      console.log(`Received ${msg} from ${rinfo.address}`);
+    });
   }
   render() {
     return (
