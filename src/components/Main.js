@@ -6,7 +6,7 @@ import Dropzone from "./Dropzone";
 import Send from "./Send";
 import "./css/Main.css";
 import { broadcast } from "../server/utils/broadcaster";
-import { addUserFromJoin } from "../actions/index";
+import { addUserFromJoin, ping } from "../actions/index";
 import dgram from "dgram";
 import actionType from "../constants/ActionTypes";
 import ip from "ip";
@@ -24,11 +24,16 @@ class Main extends Component {
     // Deal with receiving messages here
     connectionServer.on("message", (msg, rinfo) => {
       const message = JSON.parse(msg.toString());
+      if (rinfo.address === ip.address()) {
+        return;
+      }
       switch (message.type) {
         case actionType.JOIN:
-          if (!(rinfo.address === ip.address())) {
-            this.props.dispatch(addUserFromJoin(message.user));
-          }
+          this.props.dispatch(addUserFromJoin(message.user));
+          broadcast(ping(this.props.me));
+          break;
+        case actionType.PING:
+          this.props.dispatch(addUserFromJoin(message.user));
           break;
         default:
           console.log("Unrecognized actionType");

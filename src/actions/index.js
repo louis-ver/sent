@@ -8,6 +8,12 @@ function addUserFromLogin(name) {
     me: { id: uuid(), name: name, ip: ip.address() }
   };
 }
+function ping(user) {
+  return {
+    type: action.PING,
+    me: { id: user.id, name: user.name, ip: user.ip }
+  };
+}
 function addUserFromJoin(user) {
   return {
     type: action.JOIN,
@@ -41,6 +47,7 @@ function setUserSelected(id) {
 
 module.exports = {
   addUserFromLogin: addUserFromLogin,
+  ping: ping,
   addUserFromJoin: addUserFromJoin,
   acceptRequest: acceptRequest,
   declineRequest: declineRequest,
