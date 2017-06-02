@@ -18,11 +18,12 @@ class Main extends Component {
     // On server listen, send to everyone that I am online
     connectionServer.on("listening", () => {
       console.log(`Me: ${this.props.me}`);
-      broadcast(addUserFromJoin(this.props.me));
+      const message = { type: "JOIN", user: this.props.me };
+      broadcast(message);
     });
     // Deal with receiving messages here
     connectionServer.on("message", (msg, rinfo) => {
-      console.log(`Received ${msg} from ${rinfo.address}`);
+      console.log(`in message receive: ${msg}`);
       this.props.dispatch(addUserFromJoin(msg));
     });
   }
