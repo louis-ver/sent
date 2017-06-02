@@ -11,7 +11,7 @@ function addUserFromLogin(name) {
 function ping(user) {
   return {
     type: action.PING,
-    me: { id: user.id, name: user.name, ip: user.ip }
+    user: { id: user.id, name: user.name, ip: user.ip }
   };
 }
 function addUserFromJoin(user) {
