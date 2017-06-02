@@ -39,7 +39,7 @@ function changeUserSelected(state, userID) {
 function addUser(state, user) {
   let newState = stateDeepCopy(state);
   return Object.assign(
-    newState.users.byId,
+    newState,
     (user.id: { id: user.id, name: user.name, ip: user.ip, selected: false })
   );
 }
