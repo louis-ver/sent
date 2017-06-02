@@ -1,29 +1,19 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react";
 import "./css/Header.css";
 
-class Header extends React.Component {
+class Header extends Component {
   render() {
-
-    if(!this.props.me) return null;
+    let headerColor = this.props.me
+      ? { backgroundColor: "#6E00B9" }
+      : { backgroundColor: "white" };
 
     return (
-        <div className="header" style={{backgroundColor:this.props.me.color || '#6E00B9'}}>
-            <div className="headerContent" style={{backgroundColor:this.props.me.color || '#6E00B9'}}>
-                <div className="appName">
-                    sent
-                </div>
-                <div className="user">
-                    {this.props.me.name}
-                </div>
-            </div>
-        </div>
+      <div className="Header" style={headerColor}>
+        <div className="appName">{this.props.logo}</div>
+        <div className="userName">{this.props.me}</div>
+      </div>
     );
   }
 }
-
-Header = connect((store, props) => {
-  return {me : store.me};
-})(Header);
 
 export default Header;

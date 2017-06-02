@@ -1,0 +1,18 @@
+.Main {
+  height: 100vh;
+  position: relative;
+}
+.top {
+  position: absolute;
+  bottom: 234px;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow-y: scroll;
+}
+.bottom {
+  position: absolute;
+  height: 224px;
+  bottom: 0;
+  width: 100%;
+}

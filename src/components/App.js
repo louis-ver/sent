@@ -1,32 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import $ from "jquery";
-
-import Welcome from "./Welcome";
+import { addUserFromLogin } from "../actions/index";
+import Login from "./Login";
 import Main from "./Main";
 import "./App.css";
 
 class App extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (this.props.me === null && nextProps.me !== null) {
-      $(".Welcome").slideToggle("slow", () => {
-        $(".Main").slideToggle("slow");
-      });
-    }
-  }
-
   render() {
+    let me = this.props.me;
+    let component = me
+      ? <Main me={me.name} />
+      : <Login onSubmit={this.props.onSubmit} />;
     return (
       <div className="App">
-        <Welcome />
-        <Main />
+        {component}
       </div>
     );
   }
 }
 
-App = connect((store, props) => {
-  return { me: store.me };
-})(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    onSubmit: name => {
+      dispatch(addUserFromLogin(name));
+    }
+  };
+};
+const mapStateToProps = state => {
+  return { me: state.me };
+};
+
+App = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;

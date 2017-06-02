@@ -1,6 +1,7 @@
-.header {
-    padding-top: 12px;
-    position:fixed;
+.Header {
+  position: fixed;
+    cursor: pointer;
+    padding-top: 25px;
     top:0;
     height: 30px;
     width:100%;
@@ -8,14 +9,12 @@
     -webkit-app-region: drag;
 }
 
-.headerContent{
-    padding: 10px 10px;
-}
-
-.appName {
+.Header .appName {
     float:left;
+    padding-left: 10px;
 }
 
-.user {
+.Header .userName {
     text-align: right;
+    padding-right: 10px;
 }

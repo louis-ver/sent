@@ -1,11 +1,11 @@
 const {Network} = require("./network");
 
-class Join extends Network{
+class Ping extends Network{
     constructor(me){
-        super("JOIN", me);
+        super("PING", me);
     }
 }
 
 module.exports = {
-    Join : Join
+    Ping : Ping
 }

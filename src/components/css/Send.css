@@ -4,6 +4,8 @@
     color: white;
     text-align: center;
     cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .prompt {
     margin-left: auto;

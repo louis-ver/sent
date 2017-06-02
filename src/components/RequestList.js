@@ -1,24 +1,23 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Request from "./Request";
 import "./css/RequestList.css";
 
 class RequestList extends Component {
   render() {
-    const requestList = this.props.user.incomingRequests;
+    const requestList = this.props.requests;
     const requestItems = requestList.map(request => (
       <Request
         request={request}
-        key={request.guid}
-        selected={this.props.selected}
+        key={request.id}
+        onRequestAccept={this.props.onRequestAccept}
+        onRequestDecline={this.props.onRequestDecline}
+        onRequestCancel={this.props.onRequestCancel}
       />
     ));
-    let requestHeader = this.props.user.incomingRequests.length
-      ? "Incoming Requests"
-      : "";
+    let requestHeader = requestList.length ? "Incoming Requests" : null;
     return (
       <div className="RequestList">
-        <span>{requestHeader}</span>
+        <div className="requestHeader">{requestHeader}</div>
         <ul>
           {requestItems}
         </ul>
@@ -26,10 +25,5 @@ class RequestList extends Component {
     );
   }
 }
-
-RequestList.propTypes = {
-  user: PropTypes.object.isRequired,
-  selected: PropTypes.bool.isRequired
-};
 
 export default RequestList;

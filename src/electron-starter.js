@@ -1,4 +1,5 @@
 const electron = require("electron");
+const { ipcMain } = require("electron");
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
@@ -7,29 +8,28 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
 const url = require("url");
 const server = require("./server/server");
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow(
-    { width: 400,
-      height: 480,
-      titleBarStyle: 'hidden',
-      minWidth: 310
-    });
+  mainWindow = new BrowserWindow({
+    width: 370,
+    height: 480,
+    titleBarStyle: "hidden",
+    minWidth: 370
+  });
 
   // and load the index.html of the app.
   mainWindow.loadURL("http://localhost:3000");
 
   // TODO: Make sure server is not already running
   // Causes bug when window closed, then reopened.
-  server.init();
+  // server.init();
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {
