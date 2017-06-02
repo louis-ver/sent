@@ -8,6 +8,7 @@ import "./css/Main.css";
 import { broadcast } from "../server/utils/broadcaster";
 import { addUserFromJoin } from "../actions/index";
 import dgram from "dgram";
+import actionType from "../constants/ActionTypes";
 import ip from "ip";
 import { UDP_PORT } from "../constants/Addresses";
 
@@ -18,14 +19,19 @@ class Main extends Component {
     connectionServer.bind(UDP_PORT);
     // On server listen, send to everyone that I am online
     connectionServer.on("listening", () => {
-      const message = this.props.me;
-      broadcast(addUserFromJoin(message));
+      broadcast(addUserFromJoin(this.props.me));
     });
     // Deal with receiving messages here
     connectionServer.on("message", (msg, rinfo) => {
-      if (!(rinfo.address === ip.address())) {
-        const message = JSON.parse(msg.toString());
-        this.props.dispatch(addUserFromJoin(message.user));
+      const message = JSON.parse(msg.toString());
+      switch (message.type) {
+        case actionType.JOIN:
+          if (!(rinfo.address === ip.address())) {
+            this.props.dispatch(addUserFromJoin(message.user));
+          }
+          break;
+        default:
+          console.log("Unrecognized actionType");
       }
     });
   }
