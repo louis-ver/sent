@@ -44,6 +44,7 @@ function addUser(state, user) {
     ip: user.ip,
     selected: false
   };
+  newState.users.allIds.push(user);
   return newState;
 }
 function stateDeepCopy(state) {

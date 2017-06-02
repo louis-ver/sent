@@ -18,7 +18,6 @@ class Main extends Component {
     connectionServer.bind(UDP_PORT);
     // On server listen, send to everyone that I am online
     connectionServer.on("listening", () => {
-      console.log(`Me: ${this.props.me}`);
       const message = this.props.me;
       broadcast(addUserFromJoin(message));
     });
