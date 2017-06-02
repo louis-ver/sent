@@ -38,10 +38,13 @@ function changeUserSelected(state, userID) {
 }
 function addUser(state, user) {
   let newState = stateDeepCopy(state);
-  return Object.assign(
-    newState,
-    (user.id: { id: user.id, name: user.name, ip: user.ip, selected: false })
-  );
+  newState.users.byId[user.id] = {
+    id: user.id,
+    name: user.name,
+    ip: user.ip,
+    selected: false
+  };
+  return newState;
 }
 function stateDeepCopy(state) {
   return JSON.parse(JSON.stringify(state));

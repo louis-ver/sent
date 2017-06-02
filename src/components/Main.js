@@ -8,6 +8,7 @@ import "./css/Main.css";
 import { broadcast } from "../server/utils/broadcaster";
 import { addUserFromJoin } from "../actions/index";
 import dgram from "dgram";
+import ip from "ip";
 import { UDP_PORT } from "../constants/Addresses";
 
 class Main extends Component {
@@ -23,8 +24,10 @@ class Main extends Component {
     });
     // Deal with receiving messages here
     connectionServer.on("message", (msg, rinfo) => {
-      console.log(`Received ${msg} from ${rinfo.address}`);
-      this.props.dispatch(addUserFromJoin(msg));
+      if (!(rinfo.address === ip.address())) {
+        const message = JSON.parse(msg.toString());
+        this.props.dispatch(addUserFromJoin(message.user));
+      }
     });
   }
   render() {

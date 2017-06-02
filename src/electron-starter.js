@@ -4,7 +4,14 @@ const { ipcMain } = require("electron");
 const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
+const {
+  default: installExtension,
+  REACT_DEVELOPER_TOOLS,
+  REDUX_DEVTOOLS
+} = require("electron-devtools-installer");
 
+installExtension(REACT_DEVELOPER_TOOLS);
+installExtension(REDUX_DEVTOOLS);
 const path = require("path");
 const url = require("url");
 // const server = require("./server/server");
