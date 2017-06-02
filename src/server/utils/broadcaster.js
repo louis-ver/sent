@@ -4,6 +4,7 @@ const addresses = require("../../constants/Addresses");
 /* Sends msg to all hosts on the network */
 function broadcast(msg) {
   let message = new Buffer(JSON.stringify(msg));
+  console.log(`Inside broadcast: msg: ${message}`);
   var datagram = dgram.createSocket("udp4");
   datagram.bind(() => {
     datagram.setBroadcast(true);

@@ -8,6 +8,12 @@ function addUserFromLogin(name) {
     me: { id: uuid(), name: name, ip: ip.address() }
   };
 }
+function addUserFromJoin(user) {
+  return {
+    type: action.JOIN,
+    user: user
+  };
+}
 function acceptRequest(id) {
   return {
     type: action.ACCEPT,
@@ -35,6 +41,7 @@ function setUserSelected(id) {
 
 module.exports = {
   addUserFromLogin: addUserFromLogin,
+  addUserFromJoin: addUserFromJoin,
   acceptRequest: acceptRequest,
   declineRequest: declineRequest,
   cancelRequest: cancelRequest,
