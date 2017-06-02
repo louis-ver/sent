@@ -26,17 +26,7 @@ function createWindow() {
 
   // TODO: Make sure server is not already running
   // Causes bug when window closed, then reopened.
-
-  ipcMain.on("asynchronous-message", (event, arg) => {
-    console.log(arg); // prints "ping"
-    event.sender.send("asynchronous-reply", "pong");
-  });
-
-  ipcMain.on("synchronous-message", (event, arg) => {
-    console.log(arg); // prints "ping"
-    event.returnValue = "pong";
-  });
-  server.init();
+  // server.init();
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
