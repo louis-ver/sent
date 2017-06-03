@@ -2,6 +2,7 @@ const dgram = require("dgram");
 const addresses = require("../../constants/Addresses");
 
 /* Sends msg to all hosts on the network */
+// TODO: Function needs to be rewritten as async with callback
 function broadcast(msg) {
   let message = new Buffer(JSON.stringify(msg));
   var datagram = dgram.createSocket("udp4");
