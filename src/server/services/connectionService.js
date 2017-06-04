@@ -19,9 +19,10 @@ function welcome(senderIp) {
 
 function addUser(action, senderIp, dispatch) {
   console.log("addUser");
+  console.log(action);
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
-  let user = (action.user.ip = senderIp);
-  dispatch(addUserFromJoin(user));
+  action.user.ip = senderIp;
+  dispatch(addUserFromJoin(action.user));
   // action.user.ip = senderIp;
   // sent.sent(action);
 }
