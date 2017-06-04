@@ -21,9 +21,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       let message = JSON.parse(msg);
       switch (message.type) {
         case actionType.JOIN:
+          console.log(`Own props: ${JSON.stringify(ownProps)}`);
           connectionService.welcome(rinfo.address, ownProps.me);
         case actionType.PING:
-          connectionService.addUser(message, rinfo.address, dispatch);
+          connectionService.addUser(message.content, rinfo.address, dispatch);
           break;
         // If user not in online user list, add to list
         case actionType.LEAVE:

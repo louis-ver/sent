@@ -13,16 +13,17 @@ function welcome(senderIp, me) {
   if (senderIp === ip.address()) return; //We don't want to welcome ourselves. That would be odd...
 
   //Send ping back
+  console.log(me);
   let ping = new Ping(me);
   broadcaster.broadcast(ping);
 }
 
-function addUser(action, senderIp, dispatch) {
+function addUser(user, senderIp, dispatch) {
   console.log("addUser");
-  console.log(action);
+  console.log(user);
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
-  action.user.ip = senderIp;
-  dispatch(addUserFromJoin(action.user));
+  user.ip = senderIp;
+  dispatch(addUserFromJoin(user));
   // action.user.ip = senderIp;
   // sent.sent(action);
 }
