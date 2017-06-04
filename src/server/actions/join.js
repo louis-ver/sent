@@ -7,4 +7,6 @@ class Join extends Network {
   }
 }
 
-export default Join;
+module.exports = {
+  Join
+}

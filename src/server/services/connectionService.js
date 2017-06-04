@@ -1,9 +1,9 @@
 const ip = require("ip");
 const { broadcast } = require("../utils/broadcaster");
 const { addUserFromJoin, removeUserFromLeave} = require("../../actions/index");
-const Join = require("../actions/join");
-const Ping = require("../actions/ping");
-const Leave = require("../actions/leave");
+const { Join } = require("../actions/join");
+const { Ping } = require("../actions/ping");
+const { Leave } = require("../actions/leave");
 
 function join(me) {
   let join = new Join(me);

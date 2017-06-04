@@ -7,4 +7,6 @@ class Leave extends Network {
   }
 }
 
-export default Leave;
+module.exports = {
+    Leave
+}    

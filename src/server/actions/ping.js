@@ -7,4 +7,6 @@ class Ping extends Network{
     }
 }
 
-export default Ping;
+module.exports = {
+    Ping
+}
