@@ -7,11 +7,7 @@ import { initialState } from "./reducers/state";
 import App from "./components/App";
 import "./index.css";
 
-let store = createStore(
-  sent,
-  initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+let store = createStore(sent, initialState);
 render(
   <Provider store={store}>
     <App />

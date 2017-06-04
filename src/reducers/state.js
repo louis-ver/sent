@@ -9,37 +9,37 @@ const initialState = {
   // },
   me: null,
   users: {
-    byId: {
-      "43940E38-07DA-4800-A16B-D37E1EDDC5EE": {
-        id: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
-        name: "Louis-Olivier",
-        ip: "10.0.0.1",
-        selected: false
-      },
-      "15184910-538E-43ED-8294-863696EFCAB7": {
-        id: "15184910-538E-43ED-8294-863696EFCAB7",
-        name: "Simon",
-        ip: "10.0.0.2",
-        selected: false
-      },
-      "460D6927-8A80-4929-9F41-989F1F29BBB9": {
-        id: "460D6927-8A80-4929-9F41-989F1F29BBB9",
-        name: "Henri",
-        ip: "10.0.0.3",
-        selected: false
-      },
-      "38E0E8BC-B707-4B2D-A182-DCE6C0528BEA": {
-        id: "38E0E8BC-B707-4B2D-A182-DCE6C0528BEA",
-        name: "Lucy",
-        ip: "10.0.0.4",
-        selected: false
-      }
-    },
+    // byId: {
+    //   "43940E38-07DA-4800-A16B-D37E1EDDC5EE": {
+    //     id: "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
+    //     name: "Louis-Olivier",
+    //     ip: "10.0.0.1",
+    //     selected: false
+    //   },
+    //   "15184910-538E-43ED-8294-863696EFCAB7": {
+    //     id: "15184910-538E-43ED-8294-863696EFCAB7",
+    //     name: "Simon",
+    //     ip: "10.0.0.2",
+    //     selected: false
+    //   },
+    //   "460D6927-8A80-4929-9F41-989F1F29BBB9": {
+    //     id: "460D6927-8A80-4929-9F41-989F1F29BBB9",
+    //     name: "Henri",
+    //     ip: "10.0.0.3",
+    //     selected: false
+    //   },
+    //   "38E0E8BC-B707-4B2D-A182-DCE6C0528BEA": {
+    //     id: "38E0E8BC-B707-4B2D-A182-DCE6C0528BEA",
+    //     name: "Lucy",
+    //     ip: "10.0.0.4",
+    //     selected: false
+    //   }
+    byId: {},
     allIds: [
-      "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
-      "15184910-538E-43ED-8294-863696EFCAB7",
-      "460D6927-8A80-4929-9F41-989F1F29BBB9",
-      "38E0E8BC-B707-4B2D-A182-DCE6C0528BEA"
+      // "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
+      // "15184910-538E-43ED-8294-863696EFCAB7",
+      // "460D6927-8A80-4929-9F41-989F1F29BBB9",
+      // "38E0E8BC-B707-4B2D-A182-DCE6C0528BEA"
     ]
   },
   requests: {

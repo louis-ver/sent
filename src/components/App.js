@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     let me = this.props.me;
     let component = me
-      ? <Main me={me.name} />
+      ? <Main me={me} />
       : <Login onSubmit={this.props.onSubmit} />;
     return (
       <div className="App">

@@ -1,5 +1,6 @@
 module.exports = {
   LOGIN: "LOGIN",
+  JOIN: "JOIN",
   DECLINE: "DECLINE",
   ACCEPT: "ACCEPT",
   CANCEL: "CANCEL",
