@@ -39,6 +39,8 @@ class Main extends Component {
           console.log("Unrecognized actionType");
       }
     });
+
+    broadcast(addUserFromJoin(this.props.me));
   }
   render() {
     return (
