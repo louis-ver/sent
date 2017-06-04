@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         // If user not in online user list, add to list
         case actionType.LEAVE:
         // Remove user from online user list
-            connectionService.removeUser(message.content.id, dispatch);
+            connectionService.removeUser(message.content, dispatch);
             break;
         default:
         // Do default
