@@ -7,7 +7,7 @@ import Send from "./Send";
 import "./css/Main.css";
 import { broadcast } from "../server/utils/broadcaster";
 import { connectionHandler } from "../server/handlers/connectionHandler";
-import Join from "../server/actions/join";
+import { Join } from "../server/actions/join";
 
 class Main extends Component {
   constructor(props) {
