@@ -6,9 +6,6 @@ import Dropzone from "./Dropzone";
 import Send from "./Send";
 import "./css/Main.css";
 import { broadcast } from "../server/utils/broadcaster";
-import { addUserFromJoin, ping } from "../actions/index";
-import actionType from "../constants/ActionTypes";
-import { UDP_PORT } from "../constants/Addresses";
 import { connectionHandler } from "../server/handlers/connectionHandler";
 import Join from "../server/actions/join";
 
@@ -23,6 +20,10 @@ class Main extends Component {
     // Deal with receiving messages here
     connectionHandler.addMessageHandler((msg, rinfo) => {
       this.props.messageHandler(msg, rinfo);
+    });
+
+    connectionHandler.addCloseHandler(() => {
+      this.props.closeHandler();
     });
 
     broadcast(new Join(this.props.me));

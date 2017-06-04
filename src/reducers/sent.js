@@ -11,6 +11,8 @@ function sent(state, action) {
       });
     case actionType.JOIN:
       return addUser(state, action.user);
+    case actionType.LEAVE:
+      return removeUser(state, action.id);
     case actionType.ACCEPT:
       return changeRequestStatus(state, action.id, requestStatus.ACCEPTED);
     case actionType.DECLINE:
@@ -45,6 +47,13 @@ function addUser(state, user) {
     selected: false
   };
   newState.users.allIds.push(user.id);
+  return newState;
+}
+function removeUser(state, id){
+  let newState = stateDeepCopy(state);
+  delete newState.users.byId[id];
+  let index = newState.users.allIds.indexOf(id);
+  delete newState.users.allIds[index];
   return newState;
 }
 function stateDeepCopy(state) {

@@ -30,4 +30,9 @@ connectionServer.on("message", (msg, rinfo) => {
     return connectionHandler.messageHandlers.forEach(handler => handler(msg, rinfo));
 })
 
+connectionServer.on("close", () => {
+    debugger;
+    return connectionHandler.closeHandlers.forEach(handler => handler());
+})
+
 module.exports = {connectionHandler};

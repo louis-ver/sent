@@ -20,6 +20,12 @@ function addUserFromJoin(user) {
     user: user
   };
 }
+function removeUserFromLeave(id){
+  return{
+    type: action.LEAVE,
+    id: id
+  }
+}
 function acceptRequest(id) {
   return {
     type: action.ACCEPT,
@@ -46,11 +52,12 @@ function setUserSelected(id) {
 }
 
 module.exports = {
-  addUserFromLogin: addUserFromLogin,
-  ping: ping,
-  addUserFromJoin: addUserFromJoin,
-  acceptRequest: acceptRequest,
-  declineRequest: declineRequest,
-  cancelRequest: cancelRequest,
-  setUserSelected: setUserSelected
+  addUserFromLogin,
+  ping,
+  addUserFromJoin,
+  acceptRequest,
+  declineRequest,
+  cancelRequest,
+  setUserSelected,
+  removeUserFromLeave
 };

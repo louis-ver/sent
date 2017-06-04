@@ -2,6 +2,7 @@ module.exports = {
   LOGIN: "LOGIN",
   JOIN: "JOIN",
   PING: "PING",
+  LEAVE: "LEAVE",
   DECLINE: "DECLINE",
   ACCEPT: "ACCEPT",
   CANCEL: "CANCEL",

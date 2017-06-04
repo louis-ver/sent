@@ -1,12 +1,13 @@
 const ip = require("ip");
-const broadcaster = require("../utils/broadcaster");
-const { addUserFromJoin } = require("../../actions/index");
+const { broadcast } = require("../utils/broadcaster");
+const { addUserFromJoin, removeUserFromLeave} = require("../../actions/index");
 const Join = require("../actions/join");
-const { Ping } = require("../actions/ping");
+const Ping = require("../actions/ping");
+const Leave = require("../actions/leave");
 
 function join(me) {
   let join = new Join(me);
-  broadcaster.broadcast(join);
+  broadcast(join);
 }
 
 function welcome(senderIp, me) {
@@ -15,23 +16,32 @@ function welcome(senderIp, me) {
   //Send ping back
   console.log(me);
   let ping = new Ping(me);
-  broadcaster.broadcast(ping);
+  broadcast(ping);
 }
 
 function addUser(user, senderIp, dispatch) {
   console.log("addUser");
   console.log(user);
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
+
   user.ip = senderIp;
   dispatch(addUserFromJoin(user));
-  // action.user.ip = senderIp;
-  // sent.sent(action);
+}
+
+function leave(id){
+    broadcast(new Leave(id));
+}
+
+function removeUser(id, dispatch){
+    dispatch(removeUserFromLeave(id));
 }
 
 module.exports = {
-  join: join,
-  addUser: addUser,
-  welcome: welcome
+  join,
+  addUser,
+  welcome,
+  leave,
+  removeUser
 };
 
 console.log(ip.address());
