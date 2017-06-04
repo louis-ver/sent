@@ -11,18 +11,18 @@ import dgram from "dgram";
 import actionType from "../constants/ActionTypes";
 import ip from "ip";
 import { UDP_PORT } from "../constants/Addresses";
+import {connectionService} from "../server/services/connectionService";
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    const connectionServer = dgram.createSocket("udp4");
-    connectionServer.bind(UDP_PORT);
     // On server listen, send to everyone that I am online
-    connectionServer.on("listening", () => {
+    connectionService.addListeningHandler(() => {
       broadcast(addUserFromJoin(this.props.me));
     });
+
     // Deal with receiving messages here
-    connectionServer.on("message", (msg, rinfo) => {
+    connectionService.addMessageHandler((msg, rinfo) => {
       const message = JSON.parse(msg.toString());
       if (rinfo.address === ip.address()) {
         return;

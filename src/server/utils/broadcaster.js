@@ -23,5 +23,5 @@ function broadcast(msg) {
 }
 
 module.exports = {
-  broadcast: broadcast
+  broadcast
 };
