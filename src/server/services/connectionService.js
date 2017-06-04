@@ -1,5 +1,6 @@
 const ip = require("ip");
 const broadcaster = require("../utils/broadcaster");
+const { addUserFromJoin } = require("../../actions/index");
 const { Join } = require("../actions/join");
 const { Ping } = require("../actions/ping");
 
@@ -16,11 +17,11 @@ function welcome(senderIp) {
   broadcaster.broadcast(ping);
 }
 
-function addUser(action, senderIp) {
+function addUser(action, senderIp, dispatch) {
   console.log("addUser");
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
-
-  console.log(`Inconnu:${senderIp}`);
+  let user = (action.user.ip = senderIp);
+  dispatch(addUserFromJoin(user));
   // action.user.ip = senderIp;
   // sent.sent(action);
 }

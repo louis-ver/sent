@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         case actionType.JOIN:
           connectionService.welcome(rinfo.address);
         case actionType.PING:
-          connectionService.addUser(message, rinfo.address);
+          connectionService.addUser(message, rinfo.address, dispatch);
           break;
         // If user not in online user list, add to list
         case actionType.LEAVE:
