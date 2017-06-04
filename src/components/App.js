@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addUserFromLogin } from "../actions/index";
 import Login from "./Login";
-import Main from "./Main";
+import MainContainer from "../containers/MainContainer";
 import "./App.css";
 
 class App extends Component {
   render() {
     let me = this.props.me;
     let component = me
-      ? <Main me={me} />
+      ? <MainContainer me={me} />
       : <Login onSubmit={this.props.onSubmit} />;
     return (
       <div className="App">
