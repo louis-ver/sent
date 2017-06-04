@@ -9,11 +9,11 @@ function join(me) {
   broadcaster.broadcast(join);
 }
 
-function welcome(senderIp) {
+function welcome(senderIp, me) {
   if (senderIp === ip.address()) return; //We don't want to welcome ourselves. That would be odd...
 
   //Send ping back
-  let ping = new Ping("Simon");
+  let ping = new Ping(me);
   broadcaster.broadcast(ping);
 }
 
