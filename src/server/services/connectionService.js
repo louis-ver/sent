@@ -1,7 +1,7 @@
 const ip = require("ip");
 const broadcaster = require("../utils/broadcaster");
 const { addUserFromJoin } = require("../../actions/index");
-const { Join } = require("../actions/join");
+const Join = require("../actions/join");
 const { Ping } = require("../actions/ping");
 
 function join(me) {
