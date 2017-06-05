@@ -35,7 +35,6 @@ function changeUserSelected(state, userID) {
   let newState = stateDeepCopy(state);
   let isUserSelected = newState.users.byId[userID].selected;
   newState.users.byId[userID].selected = !isUserSelected;
-  console.log(newState.users.byId[userID].selected);
   return newState;
 }
 function addUser(state, user) {

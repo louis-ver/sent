@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import Header from "./Header";
 import UserServices from "../containers/UserServices";
 import Dropzone from "./Dropzone";
@@ -44,5 +43,4 @@ class Main extends Component {
   }
 }
 
-Main = connect()(Main);
 export default Main;

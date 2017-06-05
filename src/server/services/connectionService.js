@@ -14,14 +14,11 @@ function welcome(senderIp, me) {
   if (senderIp === ip.address()) return; //We don't want to welcome ourselves. That would be odd...
 
   //Send ping back
-  console.log(me);
   let ping = new Ping(me);
   broadcast(ping);
 }
 
 function addUser(user, senderIp, dispatch) {
-  console.log("addUser");
-  console.log(user);
   if (senderIp === ip.address()) return; //We don't want to add ourselves to the the user list
 
   user.ip = senderIp;
@@ -43,5 +40,3 @@ module.exports = {
   leave,
   removeUser
 };
-
-console.log(ip.address());

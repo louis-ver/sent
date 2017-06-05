@@ -31,7 +31,6 @@ connectionServer.on("message", (msg, rinfo) => {
 })
 
 connectionServer.on("close", () => {
-    debugger;
     return connectionHandler.closeHandlers.forEach(handler => handler());
 })
 

@@ -18,8 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       let message = JSON.parse(msg);
       switch (message.type) {
         case actionType.JOIN:
-            console.log(`Own props: ${JSON.stringify(ownProps)}`);
             connectionService.welcome(rinfo.address, ownProps.me);
+            // fall through
         case actionType.PING:
             connectionService.addUser(message.content, rinfo.address, dispatch);
             break;
