@@ -1,5 +1,6 @@
 const actionType = require("../constants/ActionTypes");
 const requestStatus = require("../constants/requests").requestStatus;
+const _ = require("lodash");
 
 function sent(state, action) {
   // Modifies the state according to action type
@@ -51,8 +52,8 @@ function addUser(state, user) {
 function removeUser(state, id){
   let newState = stateDeepCopy(state);
   delete newState.users.byId[id];
-  let index = newState.users.allIds.indexOf(id);
-  delete newState.users.allIds[index];
+  newState.users.byId = _.omit(newState.users.byId, [id]);
+  _.pull(newState.users.allIds, id);
   return newState;
 }
 function stateDeepCopy(state) {
