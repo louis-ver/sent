@@ -6,39 +6,27 @@ import Dropzone from "./Dropzone";
 import Send from "./Send";
 import "./css/Main.css";
 import { broadcast } from "../server/utils/broadcaster";
-import { addUserFromJoin, ping } from "../actions/index";
-import dgram from "dgram";
-import actionType from "../constants/ActionTypes";
-import ip from "ip";
-import { UDP_PORT } from "../constants/Addresses";
+import { connectionHandler } from "../server/handlers/connectionHandler";
+import { Join } from "../server/actions/join";
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    const connectionServer = dgram.createSocket("udp4");
-    connectionServer.bind(UDP_PORT);
     // On server listen, send to everyone that I am online
-    connectionServer.on("listening", () => {
-      broadcast(addUserFromJoin(this.props.me));
+    connectionHandler.addListeningHandler(() => {
+      this.props.listeningHandler();
     });
+
     // Deal with receiving messages here
-    connectionServer.on("message", (msg, rinfo) => {
-      const message = JSON.parse(msg.toString());
-      if (rinfo.address === ip.address()) {
-        return;
-      }
-      switch (message.type) {
-        case actionType.JOIN:
-          this.props.dispatch(addUserFromJoin(message.user));
-          broadcast(ping(this.props.me));
-          break;
-        case actionType.PING:
-          this.props.dispatch(addUserFromJoin(message.user));
-          break;
-        default:
-          console.log("Unrecognized actionType");
-      }
+    connectionHandler.addMessageHandler((msg, rinfo) => {
+      this.props.messageHandler(msg, rinfo);
     });
+
+    connectionHandler.addCloseHandler(() => {
+      this.props.closeHandler();
+    });
+
+    broadcast(new Join(this.props.me));
   }
   render() {
     return (
