@@ -10,8 +10,6 @@ const {
   REDUX_DEVTOOLS
 } = require("electron-devtools-installer");
 
-installExtension(REACT_DEVELOPER_TOOLS);
-installExtension(REDUX_DEVTOOLS);
 const path = require("path");
 const url = require("url");
 // const server = require("./server/server");
@@ -50,7 +48,11 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", createWindow);
+app.on("ready", () => {
+  createWindow();
+  installExtension(REACT_DEVELOPER_TOOLS);
+  installExtension(REDUX_DEVTOOLS);
+});
 
 // Quit when all windows are closed.
 app.on("window-all-closed", function() {
