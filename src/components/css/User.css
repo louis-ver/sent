@@ -4,6 +4,15 @@
     padding: 10px;
     cursor: pointer;
 }
+
+.userNotSelected {
+  padding: 12px;
+}
+
+.userSelected {
+  border:4px solid #6E00B9;
+}
+
 .User .userName {
   font-size: 1.7em;
 }

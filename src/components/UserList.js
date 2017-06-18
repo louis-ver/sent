@@ -10,7 +10,8 @@ class UserList extends Component {
         name={user.name}
         id={user.id}
         key={user.id}
-        onClick={this.props.onClick}
+        selected={user.selected}
+        toggleUserSelected={this.props.toggleUserSelected}
       />
     ));
     return (

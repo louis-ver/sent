@@ -42,6 +42,12 @@ const initialState = {
       // "38E0E8BC-B707-4B2D-A182-DCE6C0528BEA"
     ]
   },
+  file : null,
+  outgoingRequests: {
+    byId: {
+
+    }
+  },
   requests: {
     byId: {
       "B41B37C4-D0C6-40CD-BE12-AF9138D9CCA0": {
@@ -108,8 +114,15 @@ function getUserList(state) {
   return Object.keys(users).map(key => {
     return {
       id: key,
-      name: users[key].name
+      name: users[key].name,
+      selected: users[key].selected
     };
+  });
+}
+function getSelectedUsers(state) {
+  const users = state.users.byId;
+  return Object.keys(users).filter(key => {
+    return users[key].selected;
   });
 }
 function getRequestIDs(state) {
@@ -134,13 +147,18 @@ function filteredIncomingRequestsForUser(state, userId, filter) {
     };
   });
 }
+function getFile(state) {
+  return state.file;
+}
 
 module.exports = {
   initialState: initialState,
   getAllUserIds: getAllUserIds,
   getUser: getUser,
   getUserList: getUserList,
+  getSelectedUsers: getSelectedUsers,
   getRequestIDs: getRequestIDs,
   getRequest: getRequest,
-  filteredIncomingRequestsForUser: filteredIncomingRequestsForUser
+  filteredIncomingRequestsForUser: filteredIncomingRequestsForUser,
+  getFile: getFile
 };

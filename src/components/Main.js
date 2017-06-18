@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import UserServices from "../containers/UserServices";
-import Dropzone from "./Dropzone";
-import Send from "./Send";
+import DropzoneContainer from "../containers/DropzoneContainer";
+import SendContainer from "../containers/SendContainer";
 import "./css/Main.css";
 import { broadcast } from "../server/utils/broadcaster";
 import { connectionHandler } from "../server/handlers/connectionHandler";
@@ -35,8 +35,8 @@ class Main extends Component {
           <UserServices />
         </div>
         <div className="bottom">
-          <Dropzone />
-          <Send />
+          <DropzoneContainer />
+          <SendContainer />
         </div>
       </div>
     );

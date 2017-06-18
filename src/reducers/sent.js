@@ -22,6 +22,12 @@ function sent(state, action) {
       return changeRequestStatus(state, action.id, requestStatus.CANCELED);
     case actionType.SELECT_USER:
       return changeUserSelected(state, action.id);
+    case actionType.SET_FILE:
+      return setFile(state, action.file);
+    case actionType.ADD_OUTGOING_REQUEST:
+      return addOutgoingRequest(state, action.request);
+    case actionType.RESET_CURRENT_MESSAGE:
+      return resetCurrentMessage(state);
     default:
       return state;
   }
@@ -56,8 +62,31 @@ function removeUser(state, id){
   _.pull(newState.users.allIds, id);
   return newState;
 }
+function setFile(state, file){
+  let newState = stateDeepCopy(state);
+  newState.file = file;
+  return newState;
+}
+function addOutgoingRequest(state, request){
+  let newState = stateDeepCopy(state);
+  newState.outgoingRequests.byId[request.id] = request;
+  return newState;
+}
+function resetCurrentMessage(state){
+  let newState = stateDeepCopy(state);
+  newState.file = null;
+
+  const users = state.users.byId;
+  newState.users.byId = Object.keys(users).map(key => {
+    let user = users[key];
+    user.selected = false;
+    return user;
+  });
+
+  return newState;
+}
 function stateDeepCopy(state) {
-  return JSON.parse(JSON.stringify(state));
+  return _.cloneDeep(state);
 }
 module.exports = {
   sent: sent

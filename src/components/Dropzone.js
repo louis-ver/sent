@@ -7,8 +7,7 @@ class Dropzone extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      file: null,
-      dragOver: false
+       dragOver: false
     };
     this.handleDragEnter = this.handleDragEnter.bind(this);
     this.handleDragLeave = this.handleDragLeave.bind(this);
@@ -22,16 +21,18 @@ class Dropzone extends Component {
     this.setState({ dragOver: false });
   }
   handleDrop(file) {
-    this.setState({ file: file, dragOver: false });
+    this.setState({ dragOver: false });
+    this.props.setFile(file);
     console.log(file);
   }
   handleCancel(event) {
-    this.setState({ file: null });
+    // this.setState({ file: null });
+    this.props.setFile(null);
   }
   render() {
-    let noFile = this.state.file === null;
-    let prompt = noFile ? "Drag file here" : this.state.file[0].name;
-    let fileSize = noFile ? null : filesize(this.state.file[0].size);
+    let noFile = this.props.file === null;
+    let prompt = noFile ? "Drag file here" : this.props.file[0].name;
+    let fileSize = noFile ? null : filesize(this.props.file[0].size);
     let style = this.state.dragOver ? "prompt-active" : "prompt";
     let cancel = noFile ? null : "CANCEL";
     return (

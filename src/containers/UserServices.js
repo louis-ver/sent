@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: id => {
+    toggleUserSelected: id => {
       dispatch(setUserSelected(id));
     }
   };
