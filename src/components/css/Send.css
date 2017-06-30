@@ -30,14 +30,20 @@
 .Modal {
     position: absolute;
     bottom: 0;
-    left: 20px;
-    right: 20px;
-    bottom: 50px;
+    height: 162px;
+    left: 10px;
+    right: 10px;
+    bottom: 57px;
     color: white;
     background: #6e00b9;
-    text-align: center;
-    border: 2px solid black;
+    padding-left: 50px;
+    padding-right: 50px;
+    /*text-align: center;*/
+    border: 3px solid black;
     opacity: 1;
+}
+.Modal p {
+    margin-top: 70px;
 }
 .Modal:after,
 .Modal:before {
@@ -60,8 +66,8 @@
 .Modal:before {
     border-color: rgba(194, 225, 245, 0);
     border-top-color: black;
-    border-width: 13px;
-    margin-left: -13px;
+    border-width: 14px;
+    margin-left: -14px;
 }
 .Modal:focus {
     outline: 0;
