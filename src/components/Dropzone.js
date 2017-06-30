@@ -7,7 +7,7 @@ class Dropzone extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       dragOver: false
+      dragOver: false
     };
     this.handleDragEnter = this.handleDragEnter.bind(this);
     this.handleDragLeave = this.handleDragLeave.bind(this);
@@ -37,7 +37,6 @@ class Dropzone extends Component {
     let cancel = noFile ? null : "CANCEL";
     return (
       <DropZone
-        disableClick={true}
         multiple={false}
         onDragEnter={this.handleDragEnter}
         onDragLeave={this.handleDragLeave}
@@ -46,8 +45,12 @@ class Dropzone extends Component {
       >
         <div className={style}>
           {prompt}
-          <div className="fileSize">{fileSize}</div>
-          <div className="cancel" onClick={this.handleCancel}>{cancel}</div>
+          <div className="fileSize">
+            {fileSize}
+          </div>
+          <div className="cancel" onClick={this.handleCancel}>
+            {cancel}
+          </div>
         </div>
       </DropZone>
     );
