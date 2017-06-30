@@ -1,18 +1,17 @@
 .User {
-    border: 2px solid black;
-    margin-bottom: 10px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.userNotSelected {
-  padding: 12px;
+	border: 2px solid black;
+	margin-bottom: 10px;
+	padding: 10px;
+	cursor: pointer;
 }
 
 .userSelected {
-  border:4px solid #6E00B9;
+	border: none;
+	background-color: #deaeff;
+	border: 2px solid #deaeff;
+	color: white;
 }
 
 .User .userName {
-  font-size: 1.7em;
+	font-size: 1.7em;
 }
