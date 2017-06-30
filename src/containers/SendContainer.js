@@ -13,16 +13,14 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     send: (userIds, file) => {
-        let outgoinRequest = new OutgoingRequest(userIds, file);
-        dispatch(addOutgoingRequest(outgoinRequest));
+      let outgoingRequest = new OutgoingRequest(userIds, file);
+      dispatch(addOutgoingRequest(outgoingRequest));
 
-        dispatch(resetCurrentMessage());
+      dispatch(resetCurrentMessage());
     }
   };
 };
 
-const SendContainer = connect(mapStateToProps, mapDispatchToProps)(
-  Send
-);
+const SendContainer = connect(mapStateToProps, mapDispatchToProps)(Send);
 
 export default SendContainer;

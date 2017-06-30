@@ -1,6 +1,5 @@
 .Send {
     height: 50px;
-    border-radius: 5px;
     text-align: center;
     cursor: pointer;
     margin-left: 10px;
@@ -16,7 +15,6 @@
     background-color: white;
     color: black;
     border-style: solid;
-    cursor: not-allowed;
 }
 
 .prompt {
@@ -25,4 +23,43 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+.Modal {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 80px;
+    color: white;
+    background: #6e00b9;
+    text-align: center;
+    border: 2px solid black;
+    opacity: 1;
+}
+.Modal:after,
+.Modal:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.Modal:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-top-color: #6e00b9;
+    border-width: 10px;
+    margin-left: -10px;
+}
+.Modal:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-top-color: black;
+    border-width: 13px;
+    margin-left: -13px;
+}
+.Modal:focus {
+    outline: 0;
 }

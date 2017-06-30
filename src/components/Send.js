@@ -1,18 +1,44 @@
 import React, { Component } from "react";
+import Modal from "react-modal";
 import "./css/Send.css";
 
 class Send extends Component {
-  canSend() {
-    return this.props.file !== null && this.props.users.length > 0;
+  constructor(props) {
+    super(props);
+    this.state = {
+      validSend: true
+    };
+    this.canSend = this.canSend.bind(this);
+  }
+  canSend(users, file) {
+    if (file === null && users.length === 0) {
+      this.setState({ validSend: false });
+    }
+    setTimeout(() => this.setState({ validSend: true }), 2000);
   }
 
   render() {
-    let canSendClass = this.canSend() ? "canSend" : "cannotSend";
-    let tooltip = this.canSend() ? "" : "Select at least one recipient and a file to initiate a file transfer.";
-
+    let canSendClass = this.state.validSend ? "canSend" : "cannotSend";
+    let errorModal = (
+      <Modal
+        className="Modal"
+        isOpen={!this.state.validSend}
+        contentLabel="validSend"
+      >
+        <p>
+          Select at least one recipient and a file to initiate a file transfer.
+        </p>
+      </Modal>
+    );
     return (
-      <div className={`Send ${canSendClass}`} onClick={() => this.props.send(this.props.users, this.props.file)} title={tooltip}>
-        <div className="prompt">Send</div>
+      <div>
+        {errorModal}
+        <div
+          className={`Send ${canSendClass}`}
+          onClick={() => this.canSend(this.props.users, this.props.file)}
+        >
+          <div className="prompt">Send</div>
+        </div>
       </div>
     );
   }
