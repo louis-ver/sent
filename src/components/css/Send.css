@@ -24,12 +24,15 @@
     top: 50%;
     transform: translateY(-50%);
 }
+.Overlay {
+    background-color: transparent;
+}
 .Modal {
     position: absolute;
     bottom: 0;
     left: 20px;
     right: 20px;
-    bottom: 80px;
+    bottom: 50px;
     color: white;
     background: #6e00b9;
     text-align: center;

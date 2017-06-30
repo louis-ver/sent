@@ -11,7 +11,7 @@ class Send extends Component {
     this.canSend = this.canSend.bind(this);
   }
   canSend(users, file) {
-    if (file === null && users.length === 0) {
+    if (file === null || users.length === 0) {
       this.setState({ validSend: false });
     }
     setTimeout(() => this.setState({ validSend: true }), 2000);
@@ -24,6 +24,7 @@ class Send extends Component {
         className="Modal"
         isOpen={!this.state.validSend}
         contentLabel="validSend"
+        overlayClassName="Overlay"
       >
         <p>
           Select at least one recipient and a file to initiate a file transfer.
