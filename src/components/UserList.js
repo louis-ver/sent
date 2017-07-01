@@ -8,13 +8,13 @@ class UserList extends Component {
   constructor(props) {
     super(props);
 
-    fileHandler.addFileHandler((ip, data) => {
+    fileHandler.addMessageHandler((ip, data) => {
       debugger;
       if(data.type === PROPOSE)
         this.props.addProposition(data.content);
     });
   }
-  
+
   render() {
     const userList = this.props.users;
     const userItems = userList.map(user => (

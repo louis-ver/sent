@@ -10,7 +10,7 @@ function proposeTransfer(outgoingRequest){
     outgoingRequest.users.forEach(ur =>{
         let client = new net.Socket();
         client.connect(Addresses.TCP_PORT, ur.user.ip, () => {
-            client.write(propose);
+            client.write(new Buffer(JSON.stringify(propose)));
             client.destroy();
         })
     });
