@@ -8,7 +8,6 @@ const { fileHandler } = require("../handlers/fileHandler")
 function proposeTransfer(outgoingRequest){
     let propose = new Propose(outgoingRequest.file);
     outgoingRequest.users.forEach(ur =>{
-        debugger;
         let client = new net.Socket();
         client.connect(Addresses.TCP_PORT, ur.user.ip, () => {
             client.write(propose);
