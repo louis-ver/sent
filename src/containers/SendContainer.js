@@ -4,6 +4,7 @@ import { getFile, getSelectedUsers } from "../reducers/state";
 import Send from "../components/Send";
 import OutgoingRequest from "../classes/outgoingRequest";
 import fileService from "../server/services/fileService";
+import IncomingRequestDTO from "../classes/DTO/incomingRequestDTO";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -18,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         dispatch(addOutgoingRequest(outgoingRequest));
         dispatch(resetCurrentMessage());
 
-        fileService.proposeTransfer(outgoingRequest);
+        fileService.proposeTransfer(new IncomingRequestDTO(outgoingRequest.id, outgoingRequest.file));
     }
   };
 };

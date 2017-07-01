@@ -11,7 +11,7 @@ class UserList extends Component {
     fileHandler.addMessageHandler((ip, data) => {
       debugger;
       if(data.type === PROPOSE)
-        this.props.addProposition(data.content);
+        this.props.addProposition(ip, data.content);
     });
   }
 
