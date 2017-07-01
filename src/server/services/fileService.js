@@ -2,7 +2,7 @@ const net = require("net");
 const OutgoingRequest = require("../../classes/outgoingRequest");
 const state = require("../../reducers/state");
 const Addresses = require("../../constants/Addresses");
-const { IncomingRequestDTO } = require("../../classes/DTO/incomingRequestDTO");
+const IncomingRequestDTO = require("../../classes/DTO/incomingRequestDTO");
 const { Propose } = require("../actions/propose");
 const { fileHandler } = require("../handlers/fileHandler")
 
