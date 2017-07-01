@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         dispatch(addOutgoingRequest(outgoingRequest));
         dispatch(resetCurrentMessage());
 
-        fileService.proposeTransfer(new IncomingRequestDTO(outgoingRequest.id, outgoingRequest.file));
+        fileService.proposeTransfer(outgoingRequest);
     }
   };
 };
