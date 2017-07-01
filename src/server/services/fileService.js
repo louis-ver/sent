@@ -6,6 +6,7 @@ const { Propose } = require("../actions/propose");
 const { fileHandler } = require("../handlers/fileHandler")
 
 function proposeTransfer(outgoingRequest){
+    debugger;
     let propose = new Propose(outgoingRequest.file);
     outgoingRequest.users.forEach(ur =>{
         let client = new net.Socket();
