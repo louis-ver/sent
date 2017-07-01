@@ -8,7 +8,7 @@ class UserList extends Component {
   constructor(props) {
     super(props);
 
-    connectionHandler.addFileHandler((ip, data) => {
+    fileHandler.addFileHandler((ip, data) => {
       debugger;
       if(data.type === PROPOSE)
         this.props.addProposition(data.content);
