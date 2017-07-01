@@ -3,6 +3,7 @@ import { addOutgoingRequest, resetCurrentMessage } from "../actions/index";
 import { getFile, getSelectedUsers } from "../reducers/state";
 import Send from "../components/Send";
 import OutgoingRequest from "../classes/outgoingRequest";
+import fileService from "../server/services/fileService";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -12,11 +13,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    send: (userIds, file) => {
-        let outgoinRequest = new OutgoingRequest(userIds, file);
-        dispatch(addOutgoingRequest(outgoinRequest));
-
+    send: (users, file) => {
+        let outgoingRequest = new OutgoingRequest(users, file);
+        dispatch(addOutgoingRequest(outgoingRequest));
         dispatch(resetCurrentMessage());
+
+        fileService.proposeTransfer(outgoingRequest);
     }
   };
 };

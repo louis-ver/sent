@@ -1,6 +1,8 @@
-const net = require('net');
+const net = require("net");
 const addresses = require("../../constants/Addresses");
 
-const fileServer = net.createConnection({port: addresses.TCP_PORT});
+const fileServer = net
+	.createServer()
+	.listen(addresses.TCP_PORT);
 
-module.exports = {fileServer};
+module.exports = { fileServer };

@@ -34,6 +34,7 @@ const initialState = {
     //     ip: "10.0.0.4",
     //     selected: false
     //   }
+    // },
     byId: {},
     allIds: [
       // "43940E38-07DA-4800-A16B-D37E1EDDC5EE",
@@ -121,8 +122,8 @@ function getUserList(state) {
 }
 function getSelectedUsers(state) {
   const users = state.users.byId;
-  return Object.keys(users).filter(key => {
-    return users[key].selected;
+  return Object.values(users).filter(user => {
+    return user.selected;
   });
 }
 function getRequestIDs(state) {
