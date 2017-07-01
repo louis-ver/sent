@@ -3,6 +3,7 @@ const OutgoingRequest = require("../../classes/outgoingRequest");
 const state = require("../../reducers/state");
 const Addresses = require("../../constants/Addresses");
 const { Propose } = require("../actions/propose");
+const { fileHandler } = require("../handlers/fileHandler")
 
 function proposeTransfer(outgoingRequest){
     let propose = new Propose(outgoingRequest.file);
@@ -15,6 +16,8 @@ function proposeTransfer(outgoingRequest){
         })
     });
 }
+
+
 
 module.exports = {
   proposeTransfer
