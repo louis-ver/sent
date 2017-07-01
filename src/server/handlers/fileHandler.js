@@ -20,6 +20,6 @@ fileServer.on("connection", (socket) => {
     // return fileHandler.dataHandlers.forEach(handler => handler(data));
 });
 
-fileServer.listen(addresses.TCP_PORT);
+// fileServer.listen(addresses.TCP_PORT);
 
 module.exports = {fileHandler};
