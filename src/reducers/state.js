@@ -107,6 +107,12 @@ const initialState = {
 function getUser(state, id) {
   return state.users.byId[id];
 }
+function getUserIDFromUserIP(state, ip) {
+  const users = state.users.byId;
+  return Object.values(users).find(user => {
+    return user.ip === ip;
+  });
+}
 function getAllUserIds(state) {
   return state.users.allIds;
 }

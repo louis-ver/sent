@@ -1,23 +1,20 @@
 const { fileServer } = require("../servers/fileServer");
-const addresses = require("../../constants/Addresses");
+const {ipv6Toipv4} = require("../utils/ipConverter");
 
-class FileHandler{
-    constructor(){
-        this.dataHandlers = [];
+class FileHandler {
+    constructor() {
+        this.messageHandlers = [];
     }
 
-    addListeningHandler(handler){
-        this.dataHandlers.push(handler);
+    addMessageHandler(handler) {
+        this.messageHandlers.push(handler);
     }
-
 }
 
 const fileHandler = new FileHandler();
 
-
 fileServer.on("connection", (socket) => {
-    debugger;
-    // return fileHandler.dataHandlers.forEach(handler => handler(data));
+    socket.on("data", (data) => fileHandler.messageHandlers.forEach(handler => handler(ipv6Toipv4(socket.remoteAddress), JSON.parse(data.toString()))));
 });
 
 // fileServer.listen(addresses.TCP_PORT);
