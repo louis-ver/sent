@@ -1,8 +1,8 @@
 import { requestType, requestStatus } from "../constants/requests";
 
 class UserRequest {
-    constructor(userId){
-        this.id = userId;
+    constructor(user){
+        this.user = user;
         this.status = requestStatus.WAITING;
         this.progress = 0;
     }

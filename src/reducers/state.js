@@ -122,8 +122,8 @@ function getUserList(state) {
 }
 function getSelectedUsers(state) {
   const users = state.users.byId;
-  return Object.keys(users).filter(key => {
-    return users[key].selected;
+  return Object.values(users).filter(user => {
+    return user.selected;
   });
 }
 function getRequestIDs(state) {

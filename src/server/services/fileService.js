@@ -6,9 +6,8 @@ const { Propose } = require("../actions/propose");
 
 function proposeTransfer(outgoingRequest){
     let propose = new Propose(outgoingRequest.file);
-    outgoingRequest.users.forEach(ur =>{
-        let user = state.getUser(state.initialState, ur.id);
-        
+    outgoingRequest.users.forEach(user =>{
+        debugger;
         let client = new net.Socket();
         client.connect(Addresses.TCP_PORT, user.ip, () => {
             client.write(propose);

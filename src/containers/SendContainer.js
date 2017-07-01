@@ -13,8 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    send: (userIds, file) => {
-        let outgoingRequest = new OutgoingRequest(userIds, file);
+    send: (users, file) => {
+        let outgoingRequest = new OutgoingRequest(users, file);
         dispatch(addOutgoingRequest(outgoingRequest));
         dispatch(resetCurrentMessage());
 
