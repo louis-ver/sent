@@ -13,8 +13,7 @@ class FileHandler{
 
 const fileHandler = new FileHandler();
 
-
-fileServer.on("data", (data) => {
+fileServer.on("connection", (socket) => {
     debugger;
     return fileHandler.dataHandlers.forEach(handler => handler(data));
 });
