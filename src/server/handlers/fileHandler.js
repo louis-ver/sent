@@ -7,7 +7,7 @@ class FileHandler {
     }
 
     addFileHandler(handler) {
-        this.dataHandlers.push(handler);
+        this.fileHandlers.push(handler);
     }
 }
 

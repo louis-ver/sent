@@ -14,6 +14,7 @@ class UserList extends Component {
         this.props.addProposition(data.content);
     });
   }
+  
   render() {
     const userList = this.props.users;
     const userItems = userList.map(user => (
