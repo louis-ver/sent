@@ -7,7 +7,7 @@ import IncomingRequest from "../classes/incomingRequest";
 const mapStateToProps = state => {
   return { 
     users: getUserList(state),
-    getUserIDFromUserIP: (ip) => getUserIDFromUserIP(state, ip)};
+    getUserIdFromUserIp: (ip) => getUserIdFromUserIp(state, ip)};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(setUserSelected(id));
     },
     addProposition: (ip, incomingRequestDTO) =>{
-      let senderId = ownProps.getUserIDFromUserIP(ip);
+      let senderId = ownProps.getUserIdFromUserIp(ip);
       dispatch(addIncomingRequest(new IncomingRequest(incomingRequestDTO, senderId)));
     }
   };
