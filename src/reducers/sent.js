@@ -1,5 +1,6 @@
 const actionType = require("../constants/ActionTypes");
 const requestStatus = require("../constants/requests").requestStatus;
+const requestType = require("../constants/requests").requestType;
 const _ = require("lodash");
 
 function sent(state, action) {
@@ -26,6 +27,8 @@ function sent(state, action) {
       return setFile(state, action.file);
     case actionType.ADD_OUTGOING_REQUEST:
       return addOutgoingRequest(state, action.request);
+    case actionType.ADD_INCOMING_REQUEST:
+      return addIncomingRequest(state, action.request);
     case actionType.RESET_CURRENT_MESSAGE:
       return resetCurrentMessage(state);
     default:
@@ -55,24 +58,35 @@ function addUser(state, user) {
   newState.users.allIds.push(user.id);
   return newState;
 }
-function removeUser(state, id){
+function removeUser(state, id) {
   let newState = stateDeepCopy(state);
   delete newState.users.byId[id];
   newState.users.byId = _.omit(newState.users.byId, [id]);
   _.pull(newState.users.allIds, id);
   return newState;
 }
-function setFile(state, file){
+function setFile(state, file) {
   let newState = stateDeepCopy(state);
   newState.file = file;
   return newState;
 }
-function addOutgoingRequest(state, request){
+function addOutgoingRequest(state, request) {
   let newState = stateDeepCopy(state);
-  newState.outgoingRequests.byId[request.id] = request;
+  newState.outgoingRequests.byId[request.id] = _.cloneDeep(request);
   return newState;
 }
-function resetCurrentMessage(state){
+function addIncomingRequest(state, request) {
+  let newState = stateDeepCopy(state);
+  newState.incomingRequests.byId[request.id] = {
+    id: request.id,
+    sender: request.sender,
+    file: request.file,
+    status: requestStatus.WAITING,
+    type: requestType.INCOMING
+  }
+  return newState;
+}
+function resetCurrentMessage(state) {
   let newState = stateDeepCopy(state);
   newState.file = null;
 
