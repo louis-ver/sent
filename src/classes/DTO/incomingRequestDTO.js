@@ -1,4 +1,4 @@
-import InfoFile from "../../server/actions/classes/infoFile";
+import {InfoFile} from "../../server/actions/classes/infoFile";
 
 class IncomingRequestDTO {
     constructor(outgoingRequestId, file){
