@@ -64,7 +64,7 @@ function addOutgoingRequest(request) {
 }
 function addIncomingRequest(request) {
   return {
-    type: action.ADD_INCOMING_REQUEST,
+    type: action.PROPOSE,
     request: request
   };
 }
@@ -85,5 +85,6 @@ module.exports = {
   removeUserFromLeave,
   setFile,
   addOutgoingRequest,
+  addIncomingRequest,
   resetCurrentMessage
 };
