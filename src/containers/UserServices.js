@@ -15,9 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     toggleUserSelected: id => {
       dispatch(setUserSelected(id));
     },
-    addProposition: (ip, incomingRequestDTO) =>{
-      console.log("inside addProposition");
-      let senderId = ownProps.getUserIdFromUserIp(ip);
+    addProposition: (senderId, incomingRequestDTO) => {
       dispatch(addIncomingRequest(new IncomingRequest(incomingRequestDTO, senderId)));
     }
   };

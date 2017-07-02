@@ -11,8 +11,10 @@ class UserList extends Component {
     fileHandler.addMessageHandler((ip, data) => {
       debugger;
       console.log("Inside userlist messange handler");
-      if(data.type === PROPOSE)
-        this.props.addProposition(ip, data.content);
+      if(data.type === PROPOSE) {
+        let senderId = this.props.getUserIdFromUserIp(ip);
+        this.props.addProposition(senderId, data.content);
+      }
     });
   }
 
