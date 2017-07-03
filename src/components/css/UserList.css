@@ -12,15 +12,15 @@ ul {
   display: block;
   padding-top: 40px;
   text-align: center;
-  color: #e1e1e1;
+  color: #9e9e9e;
 }
 
 .loading:after {
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
-  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
-  animation: ellipsis steps(4,end) 900ms infinite;
+  -webkit-animation: ellipsis steps(4,end) 1000ms infinite;
+  animation: ellipsis steps(4,end) 1000ms infinite;
   content: "\2026"; /* ascii code for the ellipsis character */
   width: 0px;
 }
