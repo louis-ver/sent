@@ -8,3 +8,31 @@ ul {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
 }
+.noOnlineUsersPrompt {
+  display: block;
+  padding-top: 40px;
+  text-align: center;
+  color: #e1e1e1;
+}
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
