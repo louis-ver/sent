@@ -7,12 +7,10 @@ const { Propose } = require("../actions/propose");
 const { fileHandler } = require("../handlers/fileHandler")
 
 function proposeTransfer(outgoingRequest){
-    debugger;
     let propose = new Propose(new IncomingRequestDTO(outgoingRequest.id, outgoingRequest.file));
     outgoingRequest.users.forEach(ur =>{
         let client = new net.Socket();
         client.connect(Addresses.TCP_PORT, ur.user.ip, () => {
-            debugger;
             client.write(new Buffer(JSON.stringify(propose)));
             client.destroy();
         })

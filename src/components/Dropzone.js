@@ -23,7 +23,6 @@ class Dropzone extends Component {
   handleDrop(file) {
     this.setState({ dragOver: false });
     this.props.setFile(file);
-    console.log(file);
   }
   handleCancel(event) {
     // this.setState({ file: null });

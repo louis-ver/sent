@@ -15,7 +15,6 @@ const fileHandler = new FileHandler();
 
 fileServer.on("connection", (socket) => {
     socket.on("data", (data) => {
-      debugger;
       fileHandler.messageHandlers.forEach(handler => handler(ipv6Toipv4(socket.remoteAddress), JSON.parse(data.toString())));
     });
 });
