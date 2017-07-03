@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(setUserSelected(id));
     },
     addProposition: (senderId, incomingRequestDTO) => {
-      debugger;
       dispatch(addIncomingRequest(new IncomingRequest(incomingRequestDTO, senderId)));
     }
   };

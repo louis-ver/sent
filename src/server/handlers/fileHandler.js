@@ -14,7 +14,10 @@ class FileHandler {
 const fileHandler = new FileHandler();
 
 fileServer.on("connection", (socket) => {
-    socket.on("data", (data) => fileHandler.messageHandlers.forEach(handler => handler(ipv6Toipv4(socket.remoteAddress), JSON.parse(data.toString()))));
+    socket.on("data", (data) => {
+      debugger;
+      fileHandler.messageHandlers.forEach(handler => handler(ipv6Toipv4(socket.remoteAddress), JSON.parse(data.toString())));
+    });
 });
 
 // fileServer.listen(addresses.TCP_PORT);

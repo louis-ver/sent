@@ -2,9 +2,9 @@ import {InfoFile} from "../../server/actions/classes/infoFile";
 
 class IncomingRequestDTO {
     constructor(outgoingRequestId, files){
-      debugger;
+        let file = files.length ? files[0] : files;
         this.id = outgoingRequestId;
-        this.file = new InfoFile(files[0]);
+        this.file = new InfoFile(file);
     }
 }
 
