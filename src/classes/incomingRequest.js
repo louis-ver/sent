@@ -6,3 +6,5 @@ class IncomingRequest extends IncomingRequestDTO {
         this.sender = sender;
     }
 }
+
+export default IncomingRequest;

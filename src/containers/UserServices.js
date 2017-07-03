@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
-import { getUserList } from "../reducers/state";
+import { getUserList, getUserIdFromUserIp } from "../reducers/state";
 import { setUserSelected, addIncomingRequest } from "../actions/index";
 import UserList from "../components/UserList";
 import IncomingRequest from "../classes/incomingRequest";
 
 const mapStateToProps = state => {
-  return { 
+  return {
     users: getUserList(state),
     getUserIdFromUserIp: (ip) => getUserIdFromUserIp(state, ip)};
 };
@@ -15,8 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     toggleUserSelected: id => {
       dispatch(setUserSelected(id));
     },
-    addProposition: (ip, incomingRequestDTO) =>{
-      let senderId = ownProps.getUserIdFromUserIp(ip);
+    addProposition: (senderId, incomingRequestDTO) => {
       dispatch(addIncomingRequest(new IncomingRequest(incomingRequestDTO, senderId)));
     }
   };

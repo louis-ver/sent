@@ -53,18 +53,24 @@ function setUserSelected(id) {
 function setFile(file) {
   return {
     type: action.SET_FILE,
-    file: file 
+    file: file
   };
 }
 function addOutgoingRequest(request) {
   return {
     type: action.ADD_OUTGOING_REQUEST,
-    request: request 
+    request: request
+  };
+}
+function addIncomingRequest(request) {
+  return {
+    type: action.PROPOSE,
+    request: request
   };
 }
 function resetCurrentMessage() {
   return {
-    type: action.RESET_CURRENT_MESSAGE 
+    type: action.RESET_CURRENT_MESSAGE
   };
 }
 
@@ -79,5 +85,6 @@ module.exports = {
   removeUserFromLeave,
   setFile,
   addOutgoingRequest,
+  addIncomingRequest,
   resetCurrentMessage
 };

@@ -107,11 +107,11 @@ const initialState = {
 function getUser(state, id) {
   return state.users.byId[id];
 }
-function getUserIDFromUserIP(state, ip) {
+function getUserIdFromUserIp(state, ip) {
   const users = state.users.byId;
   return Object.values(users).find(user => {
     return user.ip === ip;
-  });
+  }).id;
 }
 function getAllUserIds(state) {
   return state.users.allIds;
@@ -165,6 +165,7 @@ module.exports = {
   getUserList: getUserList,
   getSelectedUsers: getSelectedUsers,
   getRequestIDs: getRequestIDs,
+  getUserIdFromUserIp: getUserIdFromUserIp,
   getRequest: getRequest,
   filteredIncomingRequestsForUser: filteredIncomingRequestsForUser,
   getFile: getFile
