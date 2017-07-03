@@ -27,7 +27,7 @@ function sent(state, action) {
       return setFile(state, action.file);
     case actionType.ADD_OUTGOING_REQUEST:
       return addOutgoingRequest(state, action.request);
-    case actionType.ADD_INCOMING_REQUEST:
+    case actionType.PROPOSE:
       return addIncomingRequest(state, action.request);
     case actionType.RESET_CURRENT_MESSAGE:
       return resetCurrentMessage(state);
@@ -77,7 +77,7 @@ function addOutgoingRequest(state, request) {
 }
 function addIncomingRequest(state, request) {
   let newState = stateDeepCopy(state);
-  newState.incomingRequests.byId[request.id] = {
+  newState.requests.byId[request.id] = {
     id: request.id,
     sender: request.sender,
     file: request.file,
