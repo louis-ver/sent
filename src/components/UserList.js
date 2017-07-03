@@ -27,7 +27,8 @@ class UserList extends Component {
         toggleUserSelected={this.props.toggleUserSelected}
       />
     ));
-    const display = userItems === null ? <span className="noOnlineUsersPrompt loading">Looking for people nearby<br /></span> : userItems;
+    debugger;
+    const display = userItems.length === 0 ? <span className="noOnlineUsersPrompt loading">Looking for people nearby<br /></span> : userItems;
     return (
       <div className="UserList">
         <ul>
