@@ -1,10 +1,7 @@
 const net = require("net");
-const OutgoingRequest = require("../../classes/outgoingRequest");
-const state = require("../../reducers/state");
 const Addresses = require("../../constants/Addresses");
 const IncomingRequestDTO = require("../../classes/DTO/incomingRequestDTO").default;
 const { Propose } = require("../actions/propose");
-const { fileHandler } = require("../handlers/fileHandler")
 
 function proposeTransfer(outgoingRequest){
     let propose = new Propose(new IncomingRequestDTO(outgoingRequest.id, outgoingRequest.file));

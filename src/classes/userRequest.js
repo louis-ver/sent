@@ -1,4 +1,4 @@
-import { requestType, requestStatus } from "../constants/requests";
+import { requestStatus } from "../constants/requests";
 
 class UserRequest {
     constructor(user){
